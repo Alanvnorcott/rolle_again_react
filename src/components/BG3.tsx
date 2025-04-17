@@ -136,7 +136,7 @@ function randomizeProfessions() {
     return shuffled.slice(0, 2) // Pick 2 primary professions
 }
 
-const WoWRetail = () => {
+const BG3 = () => {
     const [faction, setFaction] = useState('')
     const [race, setRace] = useState('')
     const [className, setClassName] = useState('')
@@ -255,9 +255,9 @@ const WoWRetail = () => {
                 backgroundColor: isRolling ? 'black' : undefined
             }}
         >
-            <div className="bg-gradient-to-b from-amber-600 to-red-800 py-4 border-b border-amber-900 shadow-inner text-center">
+            <div className="bg-gradient-to-b from-blue-300 to-red-800 py-4 border-b border-amber-900 shadow-inner text-center">
                 <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-red-700 tracking-wide drop-shadow-sm">
-                    WoW Retail
+                    Baldurs Gate 3
                 </h1>
             </div>
 
@@ -358,7 +358,7 @@ const WoWRetail = () => {
             </div>
 
             {/* Footer with Roll Button */}
-            <div className="bg-gradient-to-b from-amber-600 to-red-800 py-4 border-t border-amber-900 shadow-inner text-center">
+            <div className="bg-gradient-to-b from-blue-300 to-red-800 py-4 border-t border-amber-900 shadow-inner text-center">
                 <button
                     onClick={rollCharacter}
                     disabled={isRolling}
@@ -378,4 +378,4 @@ const WoWRetail = () => {
     )
 }
 
-export default WoWRetail
+export default BG3

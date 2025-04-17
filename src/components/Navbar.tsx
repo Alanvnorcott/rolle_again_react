@@ -33,7 +33,7 @@ const Navbar = () => {
                                 to="/wow-classic"
                                 className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                             >
-                                <div className="h-6 mr-2 rounded-full bg-gray-900 border border-#3e2c20 flex items-center justify-center overflow-hidden">
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-#3e2c20 flex items-center justify-center overflow-hidden">
                                     <img
                                         src="src/assets/GameIcons/WowClassic.png"
                                         alt="WoW Classic"
@@ -47,7 +47,7 @@ const Navbar = () => {
                                 to="/wow-retail"
                                 className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                             >
-                                <div className=" h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
                                     <img
                                         src="/src/assets/GameIcons/wowRetail.avif"
                                         alt="WoW Retail"
@@ -55,6 +55,20 @@ const Navbar = () => {
                                     />
                                 </div>
                                 WoW Retail
+                            </Link>
+
+                            <Link
+                                to="/bg3"
+                                className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            >
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src="/src/assets/GameIcons/bg3.avif"
+                                        alt="BG3"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                Baldurs Gate 3
                             </Link>
 
                             <Link
@@ -112,17 +126,17 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                        to="/wow-classic-hc"
+                        to="/wow-classic"
                         className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="/api/placeholder/24/24"
+                                src="src/assets/GameIcons/wowClassic.png"
                                 alt="WoW Classic HC"
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        WoW Classic HC
+                        WoW Classic
                     </Link>
 
                     <Link
@@ -131,12 +145,26 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="/api/placeholder/24/24"
+                                src="src/assets/GameIcons/wowRetail.jpg"
                                 alt="WoW Retail"
                                 className="w-full h-full object-cover"
                             />
                         </div>
                         WoW Retail
+                    </Link>
+
+                    <Link
+                        to="/bg3"
+                        className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                    >
+                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                            <img
+                                src="src/assets/GameIcons/bg3.avif"
+                                alt="WoW Classic HC"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        BG3
                     </Link>
 
                     <Link
