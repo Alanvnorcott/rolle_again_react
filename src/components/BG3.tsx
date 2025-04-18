@@ -1,161 +1,106 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import bgImage from '../assets/GameIcons/bg3wall.jpg'
+import bgTitle from '../assets/GameIcons/bg3title.png'
 
-// --- Logic section (updated for Retail) ---
+// --- Logic section ---
 
-const factions = ["Alliance", "Horde"]
+const morality = ["Hero", "Villain", "Neutral"]
 
-const hordeRaces = ["Orc", "Tauren", "Undead", "Troll", "Blood Elf", "Goblin", "Nightborne", "Highmountain Tauren", "Mag'har Orc", "Zandalari Troll", "Vulpera", "Pandaren", "Dracthyr"]
-const allianceRaces = ["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Worgen", "Void Elf", "Lightforged Draenei", "Dark Iron Dwarf", "Kul Tiran", "Mechagnome", "Pandaren", "Dracthyr"]
+const races = [
+    "Human",
+    "Elf",
+    "Drow",
+    "Half-Elf",
+    "Half-Orc",
+    "Halfling",
+    "Dwarf",
+    "Gnome",
+    "Tiefling",
+    "Githyanki",
+    "Dragonborn"
+];
 
-// Class availability by race for Horde
-const orcClasses = ["Warrior", "Hunter", "Rogue", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const taurenClasses = ["Warrior", "Paladin", "Hunter", "Shaman", "Druid", "Monk", "Priest", "Death Knight"]
-const undeadClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const trollClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Druid", "Monk", "Death Knight"]
-const bloodElfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Demon Hunter", "Death Knight"]
-const goblinClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Death Knight"]
-const nightborneClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const highmountainTaurenClasses = ["Warrior", "Hunter", "Shaman", "Druid", "Monk", "Death Knight"]
-const magharOrcClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const zandalariTrollClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Druid", "Monk", "Death Knight"]
-const vulperaClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const hordePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const hordeDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"]
+const classes = [
+    "Barbarian",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Fighter",
+    "Monk",
+    "Paladin",
+    "Ranger",
+    "Rogue",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+];
 
 
-// Class availability by race for Alliance
-const humanClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const dwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const nightElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Mage", "Druid", "Monk", "Demon Hunter", "Death Knight"]
-const gnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const draeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const worgenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Druid", "Warlock", "Mage", "Death Knight"]
-const voidElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const lightforgedDraeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Mage", "Death Knight"]
-const darkIronDwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const kulTiranClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Druid", "Mage", "Monk", "Death Knight"]
-const mechagnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const alliancePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const allianceDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"]
-
-// Updated professions for Retail
-const professions = [
-    // Primary Professions
-    "Alchemy", "Blacksmithing", "Enchanting", "Engineering",
-    "Herbalism", "Jewelcrafting", "Leatherworking",
-    "Mining", "Skinning", "Tailoring", "Archaeology",
-    // Secondary Professions
-    "Cooking", "Fishing", "First Aid"
-]
-
-// Class colors based on WoW color scheme (expanded)
+// Class colors based on WoW color scheme
 const classColors = {
-    "Warrior": "text-orange-500",
+    "Barbarian": "text-orange-500",
     "Paladin": "text-pink-300",
-    "Hunter": "text-green-500",
+    "Ranger": "text-green-500",
     "Rogue": "text-yellow-300",
-    "Priest": "text-gray-200",
+    "Cleric": "text-gray-200",
     "Shaman": "text-blue-300",
-    "Mage": "text-cyan-300",
+    "Sorcerer": "text-cyan-300",
     "Warlock": "text-purple-400",
     "Druid": "text-amber-600",
-    "Death Knight": "text-red-600",
+    "Fighter": "text-red-600",
     "Monk": "text-emerald-400",
-    "Demon Hunter": "text-purple-600",
-    "Evoker": "text-emerald-600"
+    "Bard": "text-purple-600",
+    "Wizard": "text-emerald-600"
 }
 
-const factionColors = {
-    "Alliance": "text-blue-500",
-    "Horde": "text-red-500",
+const moralityColors = {
+    "Hero": "text-blue-500",
+    "Villain": "text-red-500",
+    "Neutral": "text-green-500",
 }
 
 function randomizeFaction() {
-    const index = Math.floor(Math.random() * factions.length)
-    return factions[index]
+    const index = Math.floor(Math.random() * morality.length)
+    return morality[index]
 }
 
-function randomizeRace(faction) {
-    let raceList = faction === "Horde" ? hordeRaces : allianceRaces
-    return raceList[Math.floor(Math.random() * raceList.length)]
+function randomizeRace() {
+    return races[Math.floor(Math.random() * races.length)]
 }
 
-function randomizeClass(race, faction) {
-    // For races that can be both Alliance and Horde, we need to specify which faction's class list to use
-    if (race === "Pandaren") {
-        return faction === "Horde"
-            ? hordePandarenClasses[Math.floor(Math.random() * hordePandarenClasses.length)]
-            : alliancePandarenClasses[Math.floor(Math.random() * alliancePandarenClasses.length)]
-    }
-
-
-    // All other races
-    let classList
-    switch(race) {
-        // Horde races
-        case "Orc": classList = orcClasses; break
-        case "Tauren": classList = taurenClasses; break
-        case "Undead": classList = undeadClasses; break
-        case "Troll": classList = trollClasses; break
-        case "Blood Elf": classList = bloodElfClasses; break
-        case "Goblin": classList = goblinClasses; break
-        case "Nightborne": classList = nightborneClasses; break
-        case "Highmountain Tauren": classList = highmountainTaurenClasses; break
-        case "Mag'har Orc": classList = magharOrcClasses; break
-        case "Zandalari Troll": classList = zandalariTrollClasses; break
-        case "Vulpera": classList = vulperaClasses; break
-        case "Dracthyr": classList = hordeDracthyrClasses; break
-
-        // Alliance races
-        case "Human": classList = humanClasses; break
-        case "Dwarf": classList = dwarfClasses; break
-        case "Night Elf": classList = nightElfClasses; break
-        case "Gnome": classList = gnomeClasses; break
-        case "Draenei": classList = draeneiClasses; break
-        case "Worgen": classList = worgenClasses; break
-        case "Void Elf": classList = voidElfClasses; break
-        case "Lightforged Draenei": classList = lightforgedDraeneiClasses; break
-        case "Dark Iron Dwarf": classList = darkIronDwarfClasses; break
-        case "Kul Tiran": classList = kulTiranClasses; break
-        case "Mechagnome": classList = mechagnomeClasses; break
-        case "Dracthyr": classList = allianceDracthyrClasses; break
-
-        default: classList = ["Warrior"]; // Fallback
-    }
-
-    return classList[Math.floor(Math.random() * classList.length)]
+function randomizeClass() {
+    return classes[Math.floor(Math.random() * classes.length)]
 }
 
-function randomizeProfessions() {
-    // Filter for primary professions only
-    const primaryProfessions = professions.filter(prof =>
-        !["Cooking", "Fishing", "First Aid", "Archaeology"].includes(prof)
-    )
-    const shuffled = [...primaryProfessions].sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, 2) // Pick 2 primary professions
+
+// New function for Dark Surge randomization
+function randomizeDarkSurge() {
+    return Math.random() > 0.5 // 50% chance
 }
 
 const BG3 = () => {
-    const [faction, setFaction] = useState('')
+    const [morality, setFaction] = useState('')
     const [race, setRace] = useState('')
     const [className, setClassName] = useState('')
-    const [selectedProfessions, setSelectedProfessions] = useState([])
+    const [hasDarkSurge, setHasDarkSurge] = useState(false)
     const [isRolling, setIsRolling] = useState(true)
 
     const rollCharacter = () => {
         setIsRolling(true)
 
         setTimeout(() => {
-            const newFaction = randomizeFaction()
-            const newRace = randomizeRace(newFaction)
-            const newClass = randomizeClass(newRace, newFaction)
-            const newProfessions = randomizeProfessions()
+            const newMorality = randomizeFaction()
+            const newRace = randomizeRace()
+            const newClass = randomizeClass()
+            const newDarkSurge = randomizeDarkSurge()
 
-            setFaction(newFaction)
+            console.log("Rolling character with Dark Surge:", newDarkSurge)
+
+            setFaction(newMorality)
             setRace(newRace)
             setClassName(newClass)
-            setSelectedProfessions(newProfessions)
+            setHasDarkSurge(newDarkSurge)
             setIsRolling(false)
         }, 500)
     }
@@ -164,108 +109,66 @@ const BG3 = () => {
         rollCharacter()
     }, [])
 
-    // Faction image paths
-    const factionImageSrc = faction === "Horde"
-        ? "src/assets/hordeIcon.png"
-        : "src/assets/allyIcon.png"
+    // Morality image paths
+    const moralityImageSrc = {
+        "Villain": "src/assets/BG3Misc/bg3bad.jpg",
+        "Hero": "src/assets/BG3Misc/bg3good.avif",
+        "Neutral": "src/assets/BG3Misc/bg3neutral.jpg",
+    }[morality] || "src/assets/BG3Misc/bg3neutral.jpg";
 
-    // Race image paths - update with actual paths when available
+    // Race image paths
     const getRaceImageSrc = () => {
         const raceMap = {
-            // Horde Races
-            "Orc": "src/assets/WoWRaces/orc.avif",
-            "Tauren": "src/assets/WoWRaces/tauren.jpg",
-            "Undead": "src/assets/WoWRaces/undead.jpg",
-            "Troll": "src/assets/WoWRaces/troll.jpg",
-            "Blood Elf": "src/assets/WoWRaces/belf.webp",
-            "Goblin": "src/assets/WoWRaces/goblin.webp",
-            "Nightborne": "src/assets/WoWRaces/nightborne.webp",
-            "Highmountain Tauren": "src/assets/WoWRaces/hmtauren.jpg",
-            "Mag'har Orc": "src/assets/WoWRaces/magorc.webp",
-            "Zandalari Troll": "src/assets/WoWRaces/ztroll.jpg",
-            "Vulpera": "src/assets/WoWRaces/vulpera.jpg",
-
-            // Alliance Races
-            "Human": "src/assets/WoWRaces/human.jpg",
-            "Dwarf": "src/assets/WoWRaces/dwarf.jpg",
-            "Night Elf": "src/assets/WoWRaces/nelf.avif",
-            "Gnome": "src/assets/WoWRaces/gnome.webp",
-            "Draenei": "src/assets/WoWRaces/draenei.jpg",
-            "Worgen": "src/assets/WoWRaces/worgen.webp",
-            "Void Elf": "src/assets/WoWRaces/velf.webp",
-            "Lightforged Draenei": "src/assets/WoWRaces/lightforged.webp",
-            "Dark Iron Dwarf": "src/assets/WoWRaces/darkiron.webp",
-            "Kul Tiran": "src/assets/WoWRaces/kultiran.webp",
-            "Mechagnome": "src/assets/WoWRaces/mechagnome.webp",
-
-            // Shared Races
-            "Pandaren": "src/assets/WoWRaces/pandaren.jpg",
-            "Dracthyr": "src/assets/WoWRaces/dracthyr.webp"
+            "Human": "src/assets/BG3Races/Race_Human.png",
+            "Elf": "src/assets/BG3Races/Race_Elf.png",
+            "Drow": "src/assets/BG3Races/Race_Drow.png",
+            "Half-Elf": "src/assets/BG3Races/Race_Half-Elf.png",
+            "Half-Orc": "src/assets/BG3Races/Race_Half-Orc.png",
+            "Halfling": "src/assets/BG3Races/Race_Halfling.png",
+            "Dwarf": "src/assets/BG3Races/Race_Dwarf.png",
+            "Gnome": "src/assets/BG3Races/Race_Gnome.png",
+            "Tiefling": "src/assets/BG3Races/Race_Tiefling.png",
+            "Githyanki": "src/assets/BG3Races/Race_Githyanki.png",
+            "Dragonborn": "src/assets/BG3Races/Race_Dragonborn.png"
         }
         return raceMap[race] || "src/assets/races/placeholder.png"
     }
 
-    // Class image paths
+
     const getClassImageSrc = () => {
         const classMap = {
-            "Warrior": "src/assets/WoWClasses/warrior.webp",
-            "Paladin": "src/assets/WoWClasses/paladin.webp",
-            "Hunter": "src/assets/WoWClasses/hunter.webp",
-            "Rogue": "src/assets/WoWClasses/rogue.webp",
-            "Priest": "src/assets/WoWClasses/priest.webp",
-            "Shaman": "src/assets/WoWClasses/shaman.webp",
-            "Mage": "src/assets/WoWClasses/mage.webp",
-            "Warlock": "src/assets/WoWClasses/warlock.webp",
-            "Druid": "src/assets/WoWClasses/druid.webp",
-            "Death Knight": "src/assets/WoWClasses/dk.webp",
-            "Monk": "src/assets/WoWClasses/monk.webp",
-            "Demon Hunter": "src/assets/WoWClasses/demonhunter.webp",
-            "Evoker": "src/assets/WoWClasses/evoker.png"
+            "Barbarian": "src/assets/BG3Classes/barbarian.png",
+            "Bard": "src/assets/BG3Classes/bard.png",
+            "Cleric": "src/assets/BG3Classes/cleric.png",
+            "Druid": "src/assets/BG3Classes/druid.png",
+            "Fighter": "src/assets/BG3Classes/fighter.png",
+            "Monk": "src/assets/BG3Classes/monk.png",
+            "Paladin": "src/assets/BG3Classes/paladin.png",
+            "Ranger": "src/assets/BG3Classes/ranger.png",
+            "Rogue": "src/assets/BG3Classes/rogue.png",
+            "Sorcerer": "src/assets/BG3Classes/sorc.png",
+            "Warlock": "src/assets/BG3Classes/warlock.png",
+            "Wizard": "src/assets/BG3Classes/wizard.png"
         }
         return classMap[className] || "src/assets/classes/placeholder.png"
-    }
-
-    // Profession image paths
-    const getProfessionImageSrc = (profession) => {
-        const professionMap = {
-            "Mining": "src/assets/WoWProffesions/mining.webp",
-            "Herbalism": "src/assets/WoWProffesions/herbalism.webp",
-            "Blacksmithing": "src/assets/WoWProffesions/blacksmithing.webp",
-            "Alchemy": "src/assets/WoWProffesions/alchemy.jpg",
-            "Skinning": "src/assets/WoWProffesions/skinning.webp",
-            "Leatherworking": "src/assets/WoWProffesions/leatherworking.webp",
-            "Tailoring": "src/assets/WoWProffesions/tailoring.webp",
-            "Engineering": "src/assets/WoWProffesions/engineering.webp",
-            "Enchanting": "src/assets/WoWProffesions/enchanting.webp",
-            "Jewelcrafting": "src/assets/WoWProffesions/jewlcrafting.jpg",
-            "Inscription": "src/assets/WoWProffesions/inscription.webp",
-            "Archaeology": "src/assets/WoWProffesions/archaeology.webp",
-            "Cooking": "src/assets/WoWProffesions/cooking.webp",
-            "Fishing": "src/assets/WoWProffesions/fishing.webp",
-            "First Aid": "src/assets/WoWProffesions/firstaid.webp"
-        }
-        return professionMap[profession] || "src/assets/professions/placeholder.png"
     }
 
     return (
         <div
             className="min-h-screen flex flex-col bg-cover bg-center"
             style={{
-                backgroundImage: !isRolling && race ? `url(${getRaceImageSrc()})` : 'none',
-                backgroundColor: isRolling ? 'black' : undefined
+                backgroundImage: `url(${bgImage})`,
             }}
         >
-            <div className="bg-gradient-to-b from-blue-300 to-red-800 py-4 border-b border-amber-900 shadow-inner text-center">
-                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-red-700 tracking-wide drop-shadow-sm">
-                    Baldurs Gate 3
-                </h1>
+            <div className="bg-gradient-to-b from-gray-900 to-black py-8 px-4 text-center shadow-lg">
+                <img className="mx-auto h-32 w-auto drop-shadow-xl" src={bgTitle} alt="Title" />
             </div>
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col p-4 md:p-8 gap-6 max-w-2xl mx-auto w-full">
                 {/* Character Info */}
                 <div className="space-y-8 w-full">
-                    {/* Faction */}
+                    {/* Morality */}
                     <motion.div
                         className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
                         initial={{ x: -100, opacity: 0 }}
@@ -275,14 +178,14 @@ const BG3 = () => {
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
                                 <img
-                                    src={factionImageSrc}
-                                    alt={faction}
+                                    src={moralityImageSrc}
+                                    alt={morality}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div>
-                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Faction</h3>
-                                <p className={`text-2xl font-medium ${factionColors[faction] || "text-white"}`}>{faction}</p>
+                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Morality</h3>
+                                <p className={`text-2xl font-medium ${moralityColors[morality] || "text-white"}`}>{morality}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -331,34 +234,35 @@ const BG3 = () => {
                         </div>
                     </motion.div>
 
-                    {/* Professions */}
+                    {/* Dark Surge */}
                     <motion.div
                         className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
                     >
-                        <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-4">Professions</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {selectedProfessions.map((profession, index) => (
-                                <div key={index} className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
-                                        <img
-                                            src={getProfessionImageSrc(profession)}
-                                            alt={profession}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-lg text-yellow-200">{profession}</p>
+                        <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-4">Character Details</h3>
+                        <div className="grid grid-cols-2 gap-4">
+
+
+                            {/* Dark Surge on the right */}
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex-shrink-0 flex items-center justify-center">
+                                    {hasDarkSurge ? (
+                                        <span className="text-green-500 text-2xl">✓</span>
+                                    ) : (
+                                        <span className="text-red-500 text-2xl">✗</span>
+                                    )}
                                 </div>
-                            ))}
+                                <p className="text-lg text-yellow-200">Dark Surge</p>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
             </div>
 
             {/* Footer with Roll Button */}
-            <div className="bg-gradient-to-b from-blue-300 to-red-800 py-4 border-t border-amber-900 shadow-inner text-center">
+            <div className="bg-gradient-to-b from-black to-gray-900 py-8 px-4 text-center shadow-lg">
                 <button
                     onClick={rollCharacter}
                     disabled={isRolling}
