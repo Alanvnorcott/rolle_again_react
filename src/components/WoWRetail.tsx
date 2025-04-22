@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import wowRetailTitle from "../assets/GameIcons/wowRetailLogo.png";
+import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section (updated for Retail) ---
 
@@ -255,11 +257,10 @@ const WoWRetail = () => {
                 backgroundColor: isRolling ? 'black' : undefined
             }}
         >
-            <div className="bg-gradient-to-b from-amber-600 to-red-800 py-4 border-b border-amber-900 shadow-inner text-center">
-                <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-red-700 tracking-wide drop-shadow-sm">
-                    WoW Retail
-                </h1>
+            <div className="invisible text-center">
+                <img className="mx-auto max-h-36 w-auto drop-shadow-xl visible" src={wowRetailTitle} alt="Title" />
             </div>
+
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col p-4 md:p-8 gap-6 max-w-2xl mx-auto w-full">
@@ -359,20 +360,7 @@ const WoWRetail = () => {
 
             {/* Footer with Roll Button */}
             <div className="bg-gradient-to-b from-amber-600 to-red-800 py-4 border-t border-amber-900 shadow-inner text-center">
-                <button
-                    onClick={rollCharacter}
-                    disabled={isRolling}
-                    className="w-full max-w-md mx-auto py-4 bg-red-900 hover:bg-red-800 text-red-100 font-bold uppercase rounded-md border-b-4 border-red-950 hover:border-red-900 transition-colors flex items-center justify-center gap-2"
-                >
-                    {isRolling ? (
-                        <>
-                            <span className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></span>
-                            Rolling...
-                        </>
-                    ) : (
-                        'Roll New Character'
-                    )}
-                </button>
+                <RandomizerButton onRoll={() => rollCharacter()} />
             </div>
         </div>
     )
