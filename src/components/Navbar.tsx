@@ -70,6 +70,19 @@ const Navbar = () => {
                                 </div>
                                 Baldurs Gate 3
                             </Link>
+                            <Link
+                                to="/fo"
+                                className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            >
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src="/src/assets/GameIcons/bg3.avif"
+                                        alt="BG3"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                Fallout
+                            </Link>
 
                             <Link
                                 to="/about"
