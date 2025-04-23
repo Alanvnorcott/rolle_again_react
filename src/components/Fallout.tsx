@@ -135,16 +135,16 @@ const Fallout = () => {
 
     // Morality image paths
     const moralityImageSrc = {
-        "Evil": "src/assets/FalloutMisc/evil.jpg",
-        "Good": "src/assets/FalloutMisc/good.jpg",
-        "Neutral": "src/assets/FalloutMisc/neutral.jpg",
+        "Evil": "src/assets/FalloutMisc/Devil.webp",
+        "Good": "src/assets/FalloutMisc/good.webp",
+        "Neutral": "src/assets/FalloutMisc/neutral.webp",
     }[currentMorality] || "src/assets/FalloutMisc/neutral.jpg";
 
     // Sex image paths
     const getSexImageSrc = () => {
         const sexMap = {
-            "Male": "src/assets/FalloutCharacters/male.png",
-            "Female": "src/assets/FalloutCharacters/female.png"
+            "Male": "src/assets/FalloutMisc/vaultBoy.png",
+            "Female": "src/assets/FalloutMisc/vaultGirl.png",
         }
         return sexMap[sex] || "src/assets/FalloutCharacters/placeholder.png"
     }
@@ -195,16 +195,16 @@ const Fallout = () => {
 
     // Fallout game logos
     const gameImageSrc = {
-        "Fallout 4": "src/assets/FalloutLogos/fallout4.png",
-        "Fallout: New Vegas": "src/assets/FalloutLogos/newvegas.png",
-        "Fallout 3": "src/assets/FalloutLogos/fallout3.png"
+        "Fallout 4": "src/assets/Fallout4/fo4Logo.png",
+        "Fallout: New Vegas": "src/assets/FalloutNV/fonvLogo.webp",
+        "Fallout 3": "src/assets/Fallout3/fo3Logo.png"
     }
 
     return (
         <div
             className="min-h-screen flex flex-col bg-cover bg-center"
             style={{
-                backgroundImage: `url(src/assets/FalloutBackgrounds/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
+                backgroundImage: `url(src/assets/FalloutMisc/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
                 backgroundColor: "#111111"
             }}
         >
