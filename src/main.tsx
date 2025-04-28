@@ -8,7 +8,8 @@ import Navbar from "./components/Navbar.tsx"
 import Home from "./components/Home.tsx"
 import WoWRetail from "./components/WoWRetail.tsx";
 import BG3 from "./components/BG3.tsx";
-import Fallout from "./components/Fallout.tsx"; // or whatever your home component is
+import Fallout from "./components/Fallout.tsx";
+import ElderScrolls from "./components/ElderScrolls.tsx"; // or whatever your home component is
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')!).render(
                 <Route path="/wow-retail" element={<WoWRetail />} />
                 <Route path="/bg3" element={<BG3 />} />
                 <Route path="/fo" element={<Fallout />} />
+                <Route path="/elderScrolls" element={<ElderScrolls />} />
             </Routes>
         </BrowserRouter>
     </StrictMode>,

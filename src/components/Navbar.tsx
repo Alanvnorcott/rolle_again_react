@@ -74,14 +74,27 @@ const Navbar = () => {
                                 to="/fo"
                                 className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                             >
-                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-green-200 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/src/assets/GameIcons/bg3.avif"
-                                        alt="BG3"
+                                        src="/src/assets/GameIcons/fallout.webp"
+                                        alt="Fallout"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                                 Fallout
+                            </Link>
+                            <Link
+                                to="/elderScrolls"
+                                className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            >
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-pink-500 flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src="/src/assets/GameIcons/elderscrolls.webp"
+                                        alt="Elder Scrolls"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                Elder Scrolls
                             </Link>
 
                             <Link
@@ -173,11 +186,38 @@ const Navbar = () => {
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
                                 src="src/assets/GameIcons/bg3.avif"
-                                alt="WoW Classic HC"
+                                alt="Baldurs Gate 3"
                                 className="w-full h-full object-cover"
                             />
                         </div>
                         BG3
+                    </Link>
+
+                    <Link
+                        to="/fo"
+                        className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                    >
+                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                            <img
+                                src="src/assets/GameIcons/fallout.webp"
+                                alt="Fallout"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        Fallout
+                    </Link>
+                    <Link
+                        to="/fo"
+                        className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                    >
+                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                            <img
+                                src="src/assets/GameIcons/elderscrolls.webp"
+                                alt="Elder Scrolls"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        Elder Scrolls
                     </Link>
 
                     <Link
