@@ -30,31 +30,17 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                to="/wow-classic"
+                                to="/wow"
                                 className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                             >
-                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-#3e2c20 flex items-center justify-center overflow-hidden">
+                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-amber-600 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="src/assets/GameIcons/WowClassic.png"
-                                        alt="WoW Classic"
+                                        src="src/assets/GameIcons/wowRetailLogo.png"
+                                        alt="World of Warcraft"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                WoW Classic
-                            </Link>
-
-                            <Link
-                                to="/wow-retail"
-                                className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                            >
-                                <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
-                                    <img
-                                        src="/src/assets/GameIcons/wowRetail.avif"
-                                        alt="WoW Retail"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                WoW Retail
+                                World of Warcraft
                             </Link>
 
                             <Link
@@ -152,31 +138,17 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                        to="/wow-classic"
+                        to="/wow"
                         className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                     >
-                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
+                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-amber-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/wowClassic.png"
-                                alt="WoW Classic HC"
+                                src="src/assets/GameIcons/wowRetailLogo.png"
+                                alt="World of Warcraft"
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        WoW Classic
-                    </Link>
-
-                    <Link
-                        to="/wow-retail"
-                        className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                    >
-                        <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
-                            <img
-                                src="src/assets/GameIcons/wowRetail.jpg"
-                                alt="WoW Retail"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        WoW Retail
+                        World of Warcraft
                     </Link>
 
                     <Link
