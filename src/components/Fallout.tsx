@@ -36,16 +36,19 @@ const builds = {
     ],
     "Fallout 3": [
         { name: "Near-Perfection", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Near-Perfection%22" },
-        { name: "Brotherhood Knight", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Brotherhood_Knight" },
-        { name: "Wasteland Surgeon", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Wasteland_Surgeon" },
-        { name: "Sneak Thief", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Sneak_Thief" },
-        { name: "Enclave Agent", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Enclave_Agent" },
-        { name: "Radiation King", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Radiation_King" },
-        { name: "Super Mutant Hunter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Super_Mutant_Hunter" },
-        { name: "Ghoul Sympathizer", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Ghoul_Sympathizer" },
-        { name: "Big Guns Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Big_Guns_Expert" },
-        { name: "Small Guns Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Small_Guns_Expert" }
+        { name: "Scavenger", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Scavenger%22" },
+        { name: "Warmonger", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Warmonger%22" },
+        { name: "Casual", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Casual%22" },
+        { name: "First-Person Shooter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22First-Person_Shooter%22" },
+        { name: "Sharpshooter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Sniper%22" },
+        { name: "Ninja", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Stealth%22" },
+        { name: "Fighter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Brawler%22" },
+        { name: "Diplomat", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Diplomat%22" },
+        { name: "Mix-and-Match", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Mix-and-Match%22" },
+        { name: "Monk", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Monk%22" },
+        { name: "True Wanderer", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22True_Wanderer%22" }
     ]
+
 }
 
 // Build colors based on fallout pip-boy green theme
@@ -77,16 +80,20 @@ const buildColors = {
     "Balanced": "text-purple-400",
 
     // Fallout 3
+    // Fallout 3
     "Near-Perfection": "text-emerald-600",
-    "Brotherhood Knight": "text-cyan-300",
-    "Wasteland Surgeon": "text-emerald-400",
-    "Sneak Thief": "text-purple-400",
-    "Enclave Agent": "text-red-600",
-    "Radiation King": "text-green-500",
-    "Super Mutant Hunter": "text-orange-500",
-    "Ghoul Sympathizer": "text-yellow-300",
-    "Big Guns Expert": "text-red-500",
-    "Small Guns Expert": "text-pink-300"
+    "Scavenger": "text-cyan-300",
+    "Warmonger": "text-emerald-400",
+    "Casual": "text-purple-400",
+    "First-Person Shooter": "text-red-600",
+    "Sharpshooter": "text-green-500",
+    "Ninja": "text-orange-500",
+    "Fighter": "text-yellow-300",
+    "Diplomat": "text-red-500",
+    "Mix-and-Match": "text-pink-300",
+    "Monk": "text-blue-400",
+    "True Wanderer": "text-indigo-500"
+
 }
 
 const moralityColors = {
@@ -183,16 +190,20 @@ const Fallout = () => {
 
 
             // Fallout 3
-            "Near-Perfection": "src/assets/FalloutBuilds/perfection.png",
-            "Brotherhood Knight": "src/assets/FalloutBuilds/brotherhood.png",
-            "Wasteland Surgeon": "src/assets/FalloutBuilds/surgeon.png",
-            "Sneak Thief": "src/assets/FalloutBuilds/thief.png",
-            "Enclave Agent": "src/assets/FalloutBuilds/enclave.png",
-            "Radiation King": "src/assets/FalloutBuilds/radiation.png",
-            "Super Mutant Hunter": "src/assets/FalloutBuilds/mutant.png",
-            "Ghoul Sympathizer": "src/assets/FalloutBuilds/ghoul.png",
-            "Big Guns Expert": "src/assets/FalloutBuilds/bigguns.png",
-            "Small Guns Expert": "src/assets/FalloutBuilds/smallguns.png"
+            "Near-Perfection": "src/assets/Fallout3/icons/perfect.webp",
+            "Scavenger": "src/assets/Fallout3/icons/scavenger.webp",
+            "Warmonger": "src/assets/Fallout3/icons/warmonger.webp",
+            "Casual": "src/assets/Fallout3/icons/casual.webp",
+            "First-Person Shooter": "src/assets/Fallout3/icons/firstpersonshooter.webp",
+            "Sharpshooter": "src/assets/Fallout3/icons/sharpshooter.webp",
+            "Ninja": "src/assets/Fallout3/icons/ninja.webp",
+            "Fighter": "src/assets/Fallout3/icons/fighter.webp",
+            "Diplomat": "src/assets/Fallout3/icons/diplomat.webp",
+            "Mix-and-Match": "src/assets/Fallout3/icons/mix.webp",
+            "Monk": "src/assets/Fallout3/icons/monk.webp",
+            "True Wanderer": "src/assets/Fallout3/icons/wanderer.webp"
+
+
         }
         return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
     }
