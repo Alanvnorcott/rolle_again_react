@@ -11,80 +11,89 @@ const sexOptions = ["Male", "Female"]
 // Builds categorized by game with their wiki links
 const builds = {
     "Fallout 4": [
-        { name: "Gunslinger", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Gunslinger" },
-        { name: "Commando", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Commando" },
-        { name: "Heavy Gunner", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Heavy_Gunner" },
-        { name: "Sniper", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Sniper" },
-        { name: "Melee", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Melee" },
-        { name: "Unarmed", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Unarmed" },
-        { name: "Demolition Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Demolition_Expert" },
-        { name: "Stealth", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Stealth" },
-        { name: "Power Armor", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#Power_Armor" },
-        { name: "V.A.T.S. Specialist", link: "https://fallout.fandom.com/wiki/Forum:Fallout_4_character_builds#VATS_Specialist" }
+        { name: "Too Strong", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "V.A.T.S", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Lucky", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Charisma Guru", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Agile", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Genius", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Perceptive", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Stealth", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Power Armor", link: "http://www.rpg-gaming.com/fo4.html" },
+        { name: "Jack o' All", link: "http://www.rpg-gaming.com/fo4.html" }
     ],
     "Fallout: New Vegas": [
-        { name: "Cowboy", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Cowboy" },
-        { name: "Laser Commander", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Laser_Commander" },
-        { name: "Crit Hunter", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Crit_Hunter" },
-        { name: "Explosives Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Explosives_Expert" },
-        { name: "Energy Weapons Specialist", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Energy_Weapons" },
-        { name: "Unarmed Fighter", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Unarmed" },
-        { name: "Legion Assassin", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Legion_Assassin" },
-        { name: "NCR Ranger", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#NCR_Ranger" },
-        { name: "House Loyalist", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#House_Loyalist" },
-        { name: "Yes Man Independent", link: "https://fallout.fandom.com/wiki/Forum:Fallout:_New_Vegas_character_builds#Independent" }
+        { name: "Brawler", link: "https://gamestegy.com/post/fallout-new-vegas/854/unarmed-fist-build" },
+        { name: "Pistol Toter", link: "https://gamestegy.com/fallout-new-vegas/builds#:~:text=NCR%20Ranger%20Build,0" },
+        { name: "Gunslinger", link: "https://gamestegy.com/post/fallout-new-vegas/851/pistol-build" },
+        { name: "Shotgun Specialist", link: "https://gamestegy.com/post/fallout-new-vegas/845/shotgun-build" },
+        { name: "Sniper", link: "https://gamestegy.com/post/fallout-new-vegas/843/sniper-build" },
+        { name: "Laser Weapons", link: "https://gamestegy.com/fallout-new-vegas/builds#:~:text=Energy%20Weapon%20Laser,4" },
+        { name: "Explosives!", link: "https://gamestegy.com/post/fallout-new-vegas/840/explosives-build" },
+        { name: "Super-human", link: "https://fallout.fandom.com/wiki/Forum:New_Vegas_character_builds#The_Super_Human" },
+        { name: "Sweet Talker", link: "https://fallout.fandom.com/wiki/Forum:New_Vegas_character_builds#Charismatic" },
+        { name: "Balanced", link: "https://fallout.fandom.com/wiki/Forum:New_Vegas_character_builds#Balanced" }
     ],
     "Fallout 3": [
         { name: "Near-Perfection", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Near-Perfection%22" },
-        { name: "Brotherhood Knight", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Brotherhood_Knight" },
-        { name: "Wasteland Surgeon", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Wasteland_Surgeon" },
-        { name: "Sneak Thief", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Sneak_Thief" },
-        { name: "Enclave Agent", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Enclave_Agent" },
-        { name: "Radiation King", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Radiation_King" },
-        { name: "Super Mutant Hunter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Super_Mutant_Hunter" },
-        { name: "Ghoul Sympathizer", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Ghoul_Sympathizer" },
-        { name: "Big Guns Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Big_Guns_Expert" },
-        { name: "Small Guns Expert", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#Small_Guns_Expert" }
+        { name: "Scavenger", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Scavenger%22" },
+        { name: "Warmonger", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Warmonger%22" },
+        { name: "Casual", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Casual%22" },
+        { name: "First-Person Shooter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22First-Person_Shooter%22" },
+        { name: "Sharpshooter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Sniper%22" },
+        { name: "Ninja", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Stealth%22" },
+        { name: "Fighter", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Brawler%22" },
+        { name: "Diplomat", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Diplomat%22" },
+        { name: "Mix-and-Match", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Mix-and-Match%22" },
+        { name: "Monk", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Monk%22" },
+        { name: "True Wanderer", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22True_Wanderer%22" }
     ]
+
 }
 
 // Build colors based on fallout pip-boy green theme
 const buildColors = {
     // Fallout 4
-    "Gunslinger": "text-yellow-300",
-    "Commando": "text-green-500",
-    "Heavy Gunner": "text-red-600",
-    "Sniper": "text-cyan-300",
-    "Melee": "text-orange-500",
-    "Unarmed": "text-pink-300",
-    "Demolition Expert": "text-red-500",
+    "Too Strong": "text-yellow-300",
+    "V.A.T.S": "text-green-500",
+    "Lucky": "text-red-600",
+    "Charisma Guru": "text-cyan-300",
+    "Agile": "text-orange-500",
+    "Genius": "text-pink-300",
+    "Perceptive": "text-red-500",
     "Stealth": "text-purple-400",
     "Power Armor": "text-amber-600",
-    "V.A.T.S. Specialist": "text-emerald-400",
+    "Jack o' All": "text-emerald-400",
+
+
 
     // Fallout: New Vegas
-    "Cowboy": "text-yellow-300",
-    "Laser Commander": "text-green-500",
-    "Crit Hunter": "text-orange-500",
-    "Explosives Expert": "text-red-500",
-    "Energy Weapons Specialist": "text-cyan-300",
-    "Unarmed Fighter": "text-pink-300",
-    "Legion Assassin": "text-red-600",
-    "NCR Ranger": "text-emerald-400",
-    "House Loyalist": "text-amber-600",
-    "Yes Man Independent": "text-purple-400",
+    "Brawler": "text-yellow-300",
+    "Pistol Toter": "text-green-500",
+    "Gunslinger": "text-orange-500",
+    "Shotgun Specialist": "text-red-500",
+    "Sniper": "text-cyan-300",
+    "Laser Weapons": "text-pink-300",
+    "Explosives!": "text-red-600",
+    "Super-human": "text-emerald-400",
+    "Sweet Talker": "text-amber-600",
+    "Balanced": "text-purple-400",
 
     // Fallout 3
+    // Fallout 3
     "Near-Perfection": "text-emerald-600",
-    "Brotherhood Knight": "text-cyan-300",
-    "Wasteland Surgeon": "text-emerald-400",
-    "Sneak Thief": "text-purple-400",
-    "Enclave Agent": "text-red-600",
-    "Radiation King": "text-green-500",
-    "Super Mutant Hunter": "text-orange-500",
-    "Ghoul Sympathizer": "text-yellow-300",
-    "Big Guns Expert": "text-red-500",
-    "Small Guns Expert": "text-pink-300"
+    "Scavenger": "text-cyan-300",
+    "Warmonger": "text-emerald-400",
+    "Casual": "text-purple-400",
+    "First-Person Shooter": "text-red-600",
+    "Sharpshooter": "text-green-500",
+    "Ninja": "text-orange-500",
+    "Fighter": "text-yellow-300",
+    "Diplomat": "text-red-500",
+    "Mix-and-Match": "text-pink-300",
+    "Monk": "text-blue-400",
+    "True Wanderer": "text-indigo-500"
+
 }
 
 const moralityColors = {
@@ -155,40 +164,46 @@ const Fallout = () => {
 
         const buildMap = {
             // Fallout 4
-            "Gunslinger": "src/assets/FalloutBuilds/gunslinger.png",
-            "Commando": "src/assets/FalloutBuilds/commando.png",
-            "Heavy Gunner": "src/assets/FalloutBuilds/heavy.png",
-            "Sniper": "src/assets/FalloutBuilds/sniper.png",
-            "Melee": "src/assets/FalloutBuilds/melee.png",
-            "Unarmed": "src/assets/FalloutBuilds/unarmed.png",
-            "Demolition Expert": "src/assets/FalloutBuilds/demolition.png",
-            "Stealth": "src/assets/FalloutBuilds/stealth.png",
-            "Power Armor": "src/assets/FalloutBuilds/powerarmor.png",
-            "V.A.T.S. Specialist": "src/assets/FalloutBuilds/vats.png",
+            "Too Strong": "src/assets/Fallout4/icons/strong.webp",
+            "V.A.T.S": "src/assets/Fallout4/icons/vats.webp",
+            "Lucky": "src/assets/Fallout4/icons/lucky.webp",
+            "Charisma Guru": "src/assets/Fallout4/icons/charisma.webp",
+            "Agile": "src/assets/Fallout4/icons/agile.webp",
+            "Genius": "src/assets/Fallout4/icons/genius.webp",
+            "Perceptive": "src/assets/Fallout4/icons/perceptive.webp",
+            "Stealth": "src/assets/Fallout4/icons/stealth.webp",
+            "Power Armor": "src/assets/Fallout4/icons/armor.webp",
+            "Jack o' All": "src/assets/Fallout4/icons/balanced.webp",
+
 
             // New Vegas
-            "Cowboy": "src/assets/FalloutBuilds/cowboy.png",
-            "Laser Commander": "src/assets/FalloutBuilds/laser.png",
-            "Crit Hunter": "src/assets/FalloutBuilds/crit.png",
-            "Explosives Expert": "src/assets/FalloutBuilds/explosives.png",
-            "Energy Weapons Specialist": "src/assets/FalloutBuilds/energy.png",
-            "Unarmed Fighter": "src/assets/FalloutBuilds/unarmed.png",
-            "Legion Assassin": "src/assets/FalloutBuilds/legion.png",
-            "NCR Ranger": "src/assets/FalloutBuilds/ncr.png",
-            "House Loyalist": "src/assets/FalloutBuilds/house.png",
-            "Yes Man Independent": "src/assets/FalloutBuilds/yesman.png",
+            "Brawler": "src/assets/FalloutNV/icons/brawler.webp",
+            "Pistol Toter": "src/assets/FalloutNV/icons/pistol.webp",
+            "Gunslinger": "src/assets/FalloutNV/icons/gunslinger.webp",
+            "Shotgun Specialist": "src/assets/FalloutNV/icons/shotgunspec.webp",
+            "Sniper": "src/assets/FalloutNV/icons/sniper.webp",
+            "Laser Weapons": "src/assets/FalloutNV/icons/laser.webp",
+            "Explosives!": "src/assets/FalloutNV/icons/explosives.webp",
+            "Super-human": "src/assets/FalloutNV/icons/super.webp",
+            "Sweet Talker": "src/assets/FalloutNV/icons/sweet.webp",
+            "Balanced": "src/assets/FalloutNV/icons/balanced.webp",
+
 
             // Fallout 3
-            "Near-Perfection": "src/assets/FalloutBuilds/perfection.png",
-            "Brotherhood Knight": "src/assets/FalloutBuilds/brotherhood.png",
-            "Wasteland Surgeon": "src/assets/FalloutBuilds/surgeon.png",
-            "Sneak Thief": "src/assets/FalloutBuilds/thief.png",
-            "Enclave Agent": "src/assets/FalloutBuilds/enclave.png",
-            "Radiation King": "src/assets/FalloutBuilds/radiation.png",
-            "Super Mutant Hunter": "src/assets/FalloutBuilds/mutant.png",
-            "Ghoul Sympathizer": "src/assets/FalloutBuilds/ghoul.png",
-            "Big Guns Expert": "src/assets/FalloutBuilds/bigguns.png",
-            "Small Guns Expert": "src/assets/FalloutBuilds/smallguns.png"
+            "Near-Perfection": "src/assets/Fallout3/icons/perfect.webp",
+            "Scavenger": "src/assets/Fallout3/icons/scavenger.webp",
+            "Warmonger": "src/assets/Fallout3/icons/warmonger.webp",
+            "Casual": "src/assets/Fallout3/icons/casual.webp",
+            "First-Person Shooter": "src/assets/Fallout3/icons/firstpersonshooter.webp",
+            "Sharpshooter": "src/assets/Fallout3/icons/sharpshooter.webp",
+            "Ninja": "src/assets/Fallout3/icons/ninja.webp",
+            "Fighter": "src/assets/Fallout3/icons/fighter.webp",
+            "Diplomat": "src/assets/Fallout3/icons/diplomat.webp",
+            "Mix-and-Match": "src/assets/Fallout3/icons/mix.webp",
+            "Monk": "src/assets/Fallout3/icons/monk.webp",
+            "True Wanderer": "src/assets/Fallout3/icons/wanderer.webp"
+
+
         }
         return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
     }
