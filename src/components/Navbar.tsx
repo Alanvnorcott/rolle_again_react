@@ -207,7 +207,7 @@ const Navbar = () => {
                         Fallout
                     </Link>
                     <Link
-                        to="/fo"
+                        to="/elderScrolls"
                         className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
