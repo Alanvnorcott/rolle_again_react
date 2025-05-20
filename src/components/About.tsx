@@ -25,12 +25,9 @@ const About = () => {
                             <span className="text-yellow-400 font-semibold">Roll Again</span> was born from my own gaming journey.
                             I played Fallout ever since my brother and I first plugged in our Xbox 360. As I replayed Fallout 3 and New Vegas
                             I found myself creating the same characters over and over again, because I knew what worked and what I liked, but had no idea about what I didn't like.
-                            What started as a personal project for one game quickly expanded as I realized this approach could breathe new life into many of my
-                            favorite gaming universes.
                         </p>
                         <p>
-                            This site is built by someone who has always loved video games, for gamers who want to rediscover the joy of their favorite
-                            worlds through fresh perspectives and unexpected challenges.
+                            But... It wasn't until dying over and over again in World of Warcraft Hardcore (Doomhowl) that I decided to leave some of my rolls to chance.
                         </p>
                     </div>
                 </div>
@@ -133,7 +130,7 @@ const About = () => {
                             experience, I hope Roll Again helps you find new joy in these amazing game worlds we all love.
                         </p>
                         <p className="font-semibold text-yellow-400">
-                            Now, let's roll again and see where chance takes us!
+                            As many have said on Doomhowl, Roll Again!
                         </p>
                     </div>
                 </div>
