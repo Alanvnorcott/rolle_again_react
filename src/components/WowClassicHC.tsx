@@ -1,30 +1,35 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import wowClassicTItle from "../assets/GameIcons/wowClassicLogo.png";
-import wowRetailTitle from "../assets/GameIcons/wowRetailLogo.png";
 import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section (from logic.tsx) ---
 
-const factions = ["Alliance", "Horde"]
+const factions = ["Alliance", "Horde"] as const;
+type Faction = typeof factions[number];
 
-const hordeRaces = ["Orc", "Tauren", "Undead", "Troll"]
-const allianceRaces = ["Human", "Dwarf", "Night Elf", "Gnome"]
+const hordeRaces = ["Orc", "Tauren", "Undead", "Troll"] as const;
+const allianceRaces = ["Human", "Dwarf", "Night Elf", "Gnome"] as const;
+type Race = typeof hordeRaces[number] | typeof allianceRaces[number];
 
-const orcClasses = ["Warrior", "Warlock", "Hunter", "Shaman", "Rogue"]
-const taurenClasses = ["Warrior", "Druid", "Hunter", "Shaman"]
-const undeadClasses = ["Warrior", "Warlock", "Mage", "Priest", "Rogue"]
-const trollClasses = ["Warrior", "Priest", "Hunter", "Mage", "Rogue", "Shaman"]
+const classes = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Warlock", "Druid"] as const;
+type Class = typeof classes[number];
 
-const humanClasses = ["Warrior", "Paladin", "Mage", "Priest", "Rogue", "Warlock"]
-const dwarfClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Rogue"]
-const nightElfClasses = ["Warrior", "Druid", "Hunter", "Priest", "Rogue"]
-const gnomeClasses = ["Warrior", "Mage", "Rogue", "Warlock"]
+const orcClasses = ["Warrior", "Warlock", "Hunter", "Shaman", "Rogue"] as const;
+const taurenClasses = ["Warrior", "Druid", "Hunter", "Shaman"] as const;
+const undeadClasses = ["Warrior", "Warlock", "Mage", "Priest", "Rogue"] as const;
+const trollClasses = ["Warrior", "Priest", "Hunter", "Mage", "Rogue", "Shaman"] as const;
 
-const professions = ["Mining", "Herbalism", "Blacksmithing", "Alchemy", "Skinning", "Leatherworking", "Tailoring", "Engineering", "Enchanting"]
+const humanClasses = ["Warrior", "Paladin", "Mage", "Priest", "Rogue", "Warlock"] as const;
+const dwarfClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Rogue"] as const;
+const nightElfClasses = ["Warrior", "Druid", "Hunter", "Priest", "Rogue"] as const;
+const gnomeClasses = ["Warrior", "Mage", "Rogue", "Warlock"] as const;
+
+const professions = ["Mining", "Herbalism", "Blacksmithing", "Alchemy", "Skinning", "Leatherworking", "Tailoring", "Engineering", "Enchanting"] as const;
+type Profession = typeof professions[number];
 
 // Class colors based on WoW color scheme
-const classColors = {
+const classColors: Record<Class, string> = {
     "Warrior": "text-orange-500",
     "Paladin": "text-pink-300",
     "Hunter": "text-green-500",
@@ -36,27 +41,22 @@ const classColors = {
     "Druid": "text-amber-600"
 }
 
-const factionColors = {
+const factionColors: Record<Faction, string> = {
     "Alliance": "text-blue-500",
     "Horde": "text-red-500",
 }
 
-function randomizeFaction() {
+function randomizeFaction(): Faction {
     const index = Math.floor(Math.random() * factions.length)
     return factions[index]
 }
 
-function randomizeRace(faction: string) : string {
-    let race
-    if (faction === "Horde") {
-        race = hordeRaces[Math.floor(Math.random() * hordeRaces.length)]
-    } else {
-        race = allianceRaces[Math.floor(Math.random() * allianceRaces.length)]
-    }
-    return race
+function randomizeRace(faction: Faction): Race {
+    const raceList = faction === "Horde" ? hordeRaces : allianceRaces
+    return raceList[Math.floor(Math.random() * raceList.length)]
 }
 
-function randomizeClass(race: string) {
+function randomizeClass(race: Race): Class {
     if (race === "Orc") return orcClasses[Math.floor(Math.random() * orcClasses.length)]
     if (race === "Tauren") return taurenClasses[Math.floor(Math.random() * taurenClasses.length)]
     if (race === "Undead") return undeadClasses[Math.floor(Math.random() * undeadClasses.length)]
@@ -65,19 +65,19 @@ function randomizeClass(race: string) {
     if (race === "Dwarf") return dwarfClasses[Math.floor(Math.random() * dwarfClasses.length)]
     if (race === "Night Elf") return nightElfClasses[Math.floor(Math.random() * nightElfClasses.length)]
     if (race === "Gnome") return gnomeClasses[Math.floor(Math.random() * gnomeClasses.length)]
-    return ""
+    return "Warrior"
 }
 
-function randomizeProfessions() {
+function randomizeProfessions(): Profession[] {
     const shuffled = [...professions].sort(() => 0.5 - Math.random())
     return shuffled.slice(0, 2)
 }
 
 const WowClassicHardcore = () => {
-    const [faction, setFaction] = useState('')
-    const [race, setRace] = useState('')
-    const [className, setClassName] = useState('')
-    const [selectedProfessions, setSelectedProfessions] = useState([])
+    const [faction, setFaction] = useState<Faction>('Alliance')
+    const [race, setRace] = useState<Race>('Human')
+    const [className, setClassName] = useState<Class>('Warrior')
+    const [selectedProfessions, setSelectedProfessions] = useState<Profession[]>([])
     const [isRolling, setIsRolling] = useState(true)
 
     const rollCharacter = () => {
@@ -138,8 +138,8 @@ const WowClassicHardcore = () => {
     }
 
     // Hardcoded profession image paths
-    const getProfessionImageSrc = (profession) => {
-        const professionMap = {
+    const getProfessionImageSrc = (profession: Profession) => {
+        const professionMap: Record<Profession, string> = {
             "Mining": "src/assets/WoWProffesions/mining.webp",
             "Herbalism": "src/assets/WoWProffesions/herbalism.webp",
             "Blacksmithing": "src/assets/WoWProffesions/blacksmithing.webp",

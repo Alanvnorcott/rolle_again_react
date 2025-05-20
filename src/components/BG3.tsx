@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import bgImage from '../assets/GameIcons/bg3wall.jpg'
 import bgTitle from '../assets/GameIcons/bg3title.png'
-import wowRetailTitle from "../assets/GameIcons/wowRetailLogo.png";
 import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section ---
 
-const morality = ["Hero", "Villain", "Neutral"]
+const morality = ["Hero", "Villain", "Neutral"] as const;
+type Morality = typeof morality[number];
 
 const races = [
     "Human",
@@ -21,7 +21,8 @@ const races = [
     "Tiefling",
     "Githyanki",
     "Dragonborn"
-];
+] as const;
+type Race = typeof races[number];
 
 const classes = [
     "Barbarian",
@@ -36,17 +37,16 @@ const classes = [
     "Sorcerer",
     "Warlock",
     "Wizard"
-];
-
+] as const;
+type Class = typeof classes[number];
 
 // Class colors based on WoW color scheme
-const classColors = {
+const classColors: Record<Class, string> = {
     "Barbarian": "text-orange-500",
     "Paladin": "text-pink-300",
     "Ranger": "text-green-500",
     "Rogue": "text-yellow-300",
     "Cleric": "text-gray-200",
-    "Shaman": "text-blue-300",
     "Sorcerer": "text-cyan-300",
     "Warlock": "text-purple-400",
     "Druid": "text-amber-600",
@@ -56,35 +56,34 @@ const classColors = {
     "Wizard": "text-emerald-600"
 }
 
-const moralityColors = {
+const moralityColors: Record<Morality, string> = {
     "Hero": "text-blue-500",
     "Villain": "text-red-500",
     "Neutral": "text-green-500",
 }
 
-function randomizeFaction() {
+function randomizeFaction(): Morality {
     const index = Math.floor(Math.random() * morality.length)
     return morality[index]
 }
 
-function randomizeRace() {
+function randomizeRace(): Race {
     return races[Math.floor(Math.random() * races.length)]
 }
 
-function randomizeClass() {
+function randomizeClass(): Class {
     return classes[Math.floor(Math.random() * classes.length)]
 }
 
-
 // New function for Dark Surge randomization
-function randomizeDarkSurge() {
+function randomizeDarkSurge(): boolean {
     return Math.random() > 0.5 // 50% chance
 }
 
 const BG3 = () => {
-    const [morality, setFaction] = useState('')
-    const [race, setRace] = useState('')
-    const [className, setClassName] = useState('')
+    const [morality, setFaction] = useState<Morality>('Hero')
+    const [race, setRace] = useState<Race>('Human')
+    const [className, setClassName] = useState<Class>('Fighter')
     const [hasDarkSurge, setHasDarkSurge] = useState(false)
     const [isRolling, setIsRolling] = useState(true)
 
@@ -112,15 +111,15 @@ const BG3 = () => {
     }, [])
 
     // Morality image paths
-    const moralityImageSrc = {
+    const moralityImageSrc: Record<Morality, string> = {
         "Villain": "src/assets/BG3Misc/bg3bad.jpg",
         "Hero": "src/assets/BG3Misc/bg3good.avif",
         "Neutral": "src/assets/BG3Misc/bg3neutral.jpg",
-    }[morality] || "src/assets/BG3Misc/bg3neutral.jpg";
+    }
 
     // Race image paths
     const getRaceImageSrc = () => {
-        const raceMap = {
+        const raceMap: Record<Race, string> = {
             "Human": "src/assets/BG3Races/Race_Human.png",
             "Elf": "src/assets/BG3Races/Race_Elf.png",
             "Drow": "src/assets/BG3Races/Race_Drow.png",
@@ -136,9 +135,8 @@ const BG3 = () => {
         return raceMap[race] || "src/assets/races/placeholder.png"
     }
 
-
     const getClassImageSrc = () => {
-        const classMap = {
+        const classMap: Record<Class, string> = {
             "Barbarian": "src/assets/BG3Classes/barbarian.png",
             "Bard": "src/assets/BG3Classes/bard.png",
             "Cleric": "src/assets/BG3Classes/cleric.png",
@@ -180,7 +178,7 @@ const BG3 = () => {
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
                                 <img
-                                    src={moralityImageSrc}
+                                    src={moralityImageSrc[morality]}
                                     alt={morality}
                                     className="w-full h-full object-cover"
                                 />

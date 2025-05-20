@@ -4,12 +4,19 @@ import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section ---
 
-const morality = ["Good", "Evil", "Neutral"]
+const morality = ["Good", "Evil", "Neutral"] as const;
+type Morality = typeof morality[number];
 
-const sexOptions = ["Male", "Female"]
+const sexOptions = ["Male", "Female"] as const;
+type Sex = typeof sexOptions[number];
+
+interface Build {
+    name: string;
+    link: string;
+}
 
 // Builds categorized by game with their wiki links
-const builds = {
+const builds: Record<string, Build[]> = {
     "Fallout 4": [
         { name: "Too Strong", link: "http://www.rpg-gaming.com/fo4.html" },
         { name: "V.A.T.S", link: "http://www.rpg-gaming.com/fo4.html" },
@@ -48,11 +55,10 @@ const builds = {
         { name: "Monk", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22Monk%22" },
         { name: "True Wanderer", link: "https://fallout.fandom.com/wiki/Forum:Fallout_3_character_builds#%22True_Wanderer%22" }
     ]
-
 }
 
 // Build colors based on fallout pip-boy green theme
-const buildColors = {
+const buildColors: Record<string, string> = {
     // Fallout 4
     "Too Strong": "text-yellow-300",
     "V.A.T.S": "text-green-500",
@@ -64,8 +70,6 @@ const buildColors = {
     "Stealth": "text-purple-400",
     "Power Armor": "text-amber-600",
     "Jack o' All": "text-emerald-400",
-
-
 
     // Fallout: New Vegas
     "Brawler": "text-yellow-300",
@@ -80,7 +84,6 @@ const buildColors = {
     "Balanced": "text-purple-400",
 
     // Fallout 3
-    // Fallout 3
     "Near-Perfection": "text-emerald-600",
     "Scavenger": "text-cyan-300",
     "Warmonger": "text-emerald-400",
@@ -93,34 +96,33 @@ const buildColors = {
     "Mix-and-Match": "text-pink-300",
     "Monk": "text-blue-400",
     "True Wanderer": "text-indigo-500"
-
 }
 
-const moralityColors = {
+const moralityColors: Record<Morality, string> = {
     "Good": "text-blue-500",
     "Evil": "text-red-500",
     "Neutral": "text-green-500",
 }
 
-function randomizeMorality() {
+function randomizeMorality(): Morality {
     const index = Math.floor(Math.random() * morality.length)
     return morality[index]
 }
 
-function randomizeSex() {
+function randomizeSex(): Sex {
     return sexOptions[Math.floor(Math.random() * sexOptions.length)]
 }
 
-function randomizeBuild(game) {
+function randomizeBuild(game: string): Build {
     const gameBuilds = builds[game]
     return gameBuilds[Math.floor(Math.random() * gameBuilds.length)]
 }
 
 const Fallout = () => {
-    const [selectedGame, setSelectedGame] = useState("Fallout 4")
-    const [currentMorality, setMorality] = useState('')
-    const [sex, setSex] = useState('')
-    const [build, setBuild] = useState(null)
+    const [selectedGame, setSelectedGame] = useState<string>("Fallout 4")
+    const [currentMorality, setMorality] = useState<Morality>('Good')
+    const [sex, setSex] = useState<Sex>('Male')
+    const [build, setBuild] = useState<Build | null>(null)
     const [isRolling, setIsRolling] = useState(true)
 
     const rollCharacter = () => {
@@ -143,15 +145,15 @@ const Fallout = () => {
     }, [selectedGame])
 
     // Morality image paths
-    const moralityImageSrc = {
+    const moralityImageSrc: Record<Morality, string> = {
         "Evil": "src/assets/FalloutMisc/Devil.webp",
         "Good": "src/assets/FalloutMisc/good.webp",
         "Neutral": "src/assets/FalloutMisc/neutral.webp",
-    }[currentMorality] || "src/assets/FalloutMisc/neutral.jpg";
+    }
 
     // Sex image paths
     const getSexImageSrc = () => {
-        const sexMap = {
+        const sexMap: Record<Sex, string> = {
             "Male": "src/assets/FalloutMisc/vaultBoy.png",
             "Female": "src/assets/FalloutMisc/vaultGirl.png",
         }
@@ -162,7 +164,7 @@ const Fallout = () => {
     const getBuildImageSrc = () => {
         if (!build) return "src/assets/FalloutBuilds/placeholder.png";
 
-        const buildMap = {
+        const buildMap: Record<string, string> = {
             // Fallout 4
             "Too Strong": "src/assets/Fallout4/icons/strong.webp",
             "V.A.T.S": "src/assets/Fallout4/icons/vats.webp",
@@ -175,7 +177,6 @@ const Fallout = () => {
             "Power Armor": "src/assets/Fallout4/icons/armor.webp",
             "Jack o' All": "src/assets/Fallout4/icons/balanced.webp",
 
-
             // New Vegas
             "Brawler": "src/assets/FalloutNV/icons/brawler.webp",
             "Pistol Toter": "src/assets/FalloutNV/icons/pistol.webp",
@@ -187,7 +188,6 @@ const Fallout = () => {
             "Super-human": "src/assets/FalloutNV/icons/super.webp",
             "Sweet Talker": "src/assets/FalloutNV/icons/sweet.webp",
             "Balanced": "src/assets/FalloutNV/icons/balanced.webp",
-
 
             // Fallout 3
             "Near-Perfection": "src/assets/Fallout3/icons/perfect.webp",
@@ -202,14 +202,12 @@ const Fallout = () => {
             "Mix-and-Match": "src/assets/Fallout3/icons/mix.webp",
             "Monk": "src/assets/Fallout3/icons/monk.webp",
             "True Wanderer": "src/assets/Fallout3/icons/wanderer.webp"
-
-
         }
         return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
     }
 
     // Fallout game logos
-    const gameImageSrc = {
+    const gameImageSrc: Record<string, string> = {
         "Fallout 4": "src/assets/Fallout4/fo4Logo.png",
         "Fallout: New Vegas": "src/assets/FalloutNV/fonvLogo.webp",
         "Fallout 3": "src/assets/Fallout3/fo3Logo.png"
@@ -260,7 +258,7 @@ const Fallout = () => {
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
                                 <img
-                                    src={moralityImageSrc}
+                                    src={moralityImageSrc[currentMorality]}
                                     alt={currentMorality}
                                     className="w-full h-full object-cover"
                                 />

@@ -5,41 +5,45 @@ import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section (updated for Retail) ---
 
-const factions = ["Alliance", "Horde"]
+const factions = ["Alliance", "Horde"] as const;
+type Faction = typeof factions[number];
 
-const hordeRaces = ["Orc", "Tauren", "Undead", "Troll", "Blood Elf", "Goblin", "Nightborne", "Highmountain Tauren", "Mag'har Orc", "Zandalari Troll", "Vulpera", "Pandaren", "Dracthyr"]
-const allianceRaces = ["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Worgen", "Void Elf", "Lightforged Draenei", "Dark Iron Dwarf", "Kul Tiran", "Mechagnome", "Pandaren", "Dracthyr"]
+const hordeRaces = ["Orc", "Tauren", "Undead", "Troll", "Blood Elf", "Goblin", "Nightborne", "Highmountain Tauren", "Mag'har Orc", "Zandalari Troll", "Vulpera", "Pandaren", "Dracthyr"] as const;
+const allianceRaces = ["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Worgen", "Void Elf", "Lightforged Draenei", "Dark Iron Dwarf", "Kul Tiran", "Mechagnome", "Pandaren", "Dracthyr"] as const;
+type Race = typeof hordeRaces[number] | typeof allianceRaces[number];
+
+const classes = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Warlock", "Druid", "Death Knight", "Monk", "Demon Hunter", "Evoker"] as const;
+type Class = typeof classes[number];
 
 // Class availability by race for Horde
-const orcClasses = ["Warrior", "Hunter", "Rogue", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const taurenClasses = ["Warrior", "Paladin", "Hunter", "Shaman", "Druid", "Monk", "Priest", "Death Knight"]
-const undeadClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const trollClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Druid", "Monk", "Death Knight"]
-const bloodElfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Demon Hunter", "Death Knight"]
-const goblinClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Death Knight"]
-const nightborneClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const highmountainTaurenClasses = ["Warrior", "Hunter", "Shaman", "Druid", "Monk", "Death Knight"]
-const magharOrcClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const zandalariTrollClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Druid", "Monk", "Death Knight"]
-const vulperaClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const hordePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const hordeDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"]
-
+const orcClasses = ["Warrior", "Hunter", "Rogue", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const taurenClasses = ["Warrior", "Paladin", "Hunter", "Shaman", "Druid", "Monk", "Priest", "Death Knight"] as const;
+const undeadClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const trollClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Druid", "Monk", "Death Knight"] as const;
+const bloodElfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Demon Hunter", "Death Knight"] as const;
+const goblinClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Death Knight"] as const;
+const nightborneClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const highmountainTaurenClasses = ["Warrior", "Hunter", "Shaman", "Druid", "Monk", "Death Knight"] as const;
+const magharOrcClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"] as const;
+const zandalariTrollClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Druid", "Monk", "Death Knight"] as const;
+const vulperaClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const hordePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"] as const;
+const hordeDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"] as const;
 
 // Class availability by race for Alliance
-const humanClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const dwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const nightElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Mage", "Druid", "Monk", "Demon Hunter", "Death Knight"]
-const gnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const draeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const worgenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Druid", "Warlock", "Mage", "Death Knight"]
-const voidElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const lightforgedDraeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Mage", "Death Knight"]
-const darkIronDwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"]
-const kulTiranClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Druid", "Mage", "Monk", "Death Knight"]
-const mechagnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"]
-const alliancePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"]
-const allianceDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"]
+const humanClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const dwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const nightElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Mage", "Druid", "Monk", "Demon Hunter", "Death Knight"] as const;
+const gnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const draeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Shaman", "Mage", "Monk", "Death Knight"] as const;
+const worgenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Druid", "Warlock", "Mage", "Death Knight"] as const;
+const voidElfClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const lightforgedDraeneiClasses = ["Warrior", "Paladin", "Hunter", "Priest", "Mage", "Death Knight"] as const;
+const darkIronDwarfClasses = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Shaman", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const kulTiranClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Druid", "Mage", "Monk", "Death Knight"] as const;
+const mechagnomeClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Warlock", "Mage", "Monk", "Death Knight"] as const;
+const alliancePandarenClasses = ["Warrior", "Hunter", "Rogue", "Priest", "Shaman", "Mage", "Monk", "Death Knight"] as const;
+const allianceDracthyrClasses = ["Evoker", "Hunter", "Rogue", "Priest", "Mage", "Warrior", "Warlock"] as const;
 
 // Updated professions for Retail
 const professions = [
@@ -49,10 +53,11 @@ const professions = [
     "Mining", "Skinning", "Tailoring", "Archaeology",
     // Secondary Professions
     "Cooking", "Fishing", "First Aid"
-]
+] as const;
+type Profession = typeof professions[number];
 
 // Class colors based on WoW color scheme (expanded)
-const classColors = {
+const classColors: Record<Class, string> = {
     "Warrior": "text-orange-500",
     "Paladin": "text-pink-300",
     "Hunter": "text-green-500",
@@ -68,22 +73,22 @@ const classColors = {
     "Evoker": "text-emerald-600"
 }
 
-const factionColors = {
+const factionColors: Record<Faction, string> = {
     "Alliance": "text-blue-500",
     "Horde": "text-red-500",
 }
 
-function randomizeFaction() {
+function randomizeFaction(): Faction {
     const index = Math.floor(Math.random() * factions.length)
     return factions[index]
 }
 
-function randomizeRace(faction) {
-    let raceList = faction === "Horde" ? hordeRaces : allianceRaces
+function randomizeRace(faction: Faction): Race {
+    const raceList = faction === "Horde" ? hordeRaces : allianceRaces
     return raceList[Math.floor(Math.random() * raceList.length)]
 }
 
-function randomizeClass(race, faction) {
+function randomizeClass(race: Race, faction: Faction): Class {
     // For races that can be both Alliance and Horde, we need to specify which faction's class list to use
     if (race === "Pandaren") {
         return faction === "Horde"
@@ -91,9 +96,8 @@ function randomizeClass(race, faction) {
             : alliancePandarenClasses[Math.floor(Math.random() * alliancePandarenClasses.length)]
     }
 
-
     // All other races
-    let classList
+    let classList: readonly Class[]
     switch(race) {
         // Horde races
         case "Orc": classList = orcClasses; break
@@ -123,13 +127,13 @@ function randomizeClass(race, faction) {
         case "Mechagnome": classList = mechagnomeClasses; break
         case "Dracthyr": classList = allianceDracthyrClasses; break
 
-        default: classList = ["Warrior"]; // Fallback
+        default: classList = ["Warrior"] as const; // Fallback
     }
 
     return classList[Math.floor(Math.random() * classList.length)]
 }
 
-function randomizeProfessions() {
+function randomizeProfessions(): Profession[] {
     // Filter for primary professions only
     const primaryProfessions = professions.filter(prof =>
         !["Cooking", "Fishing", "First Aid", "Archaeology"].includes(prof)
@@ -139,15 +143,12 @@ function randomizeProfessions() {
 }
 
 const WoWRetail = () => {
-    const [faction, setFaction] = useState('')
-    const [race, setRace] = useState('')
-    const [className, setClassName] = useState('')
-    const [selectedProfessions, setSelectedProfessions] = useState([])
-    const [isRolling, setIsRolling] = useState(true)
+    const [faction, setFaction] = useState<Faction>('Alliance')
+    const [race, setRace] = useState<Race>('Human')
+    const [className, setClassName] = useState<Class>('Warrior')
+    const [selectedProfessions, setSelectedProfessions] = useState<Profession[]>([])
 
     const rollCharacter = () => {
-        setIsRolling(true)
-
         setTimeout(() => {
             const newFaction = randomizeFaction()
             const newRace = randomizeRace(newFaction)
@@ -158,7 +159,6 @@ const WoWRetail = () => {
             setRace(newRace)
             setClassName(newClass)
             setSelectedProfessions(newProfessions)
-            setIsRolling(false)
         }, 500)
     }
 
@@ -173,7 +173,7 @@ const WoWRetail = () => {
 
     // Race image paths - update with actual paths when available
     const getRaceImageSrc = () => {
-        const raceMap = {
+        const raceMap: Record<Race, string> = {
             // Horde Races
             "Orc": "src/assets/WoWRaces/orc.avif",
             "Tauren": "src/assets/WoWRaces/tauren.jpg",
@@ -209,7 +209,7 @@ const WoWRetail = () => {
 
     // Class image paths
     const getClassImageSrc = () => {
-        const classMap = {
+        const classMap: Record<Class, string> = {
             "Warrior": "src/assets/WoWClasses/warrior.webp",
             "Paladin": "src/assets/WoWClasses/paladin.webp",
             "Hunter": "src/assets/WoWClasses/hunter.webp",
@@ -228,8 +228,8 @@ const WoWRetail = () => {
     }
 
     // Profession image paths
-    const getProfessionImageSrc = (profession) => {
-        const professionMap = {
+    const getProfessionImageSrc = (profession: Profession) => {
+        const professionMap: Record<Profession, string> = {
             "Mining": "src/assets/WoWProffesions/mining.webp",
             "Herbalism": "src/assets/WoWProffesions/herbalism.webp",
             "Blacksmithing": "src/assets/WoWProffesions/blacksmithing.webp",
@@ -240,7 +240,6 @@ const WoWRetail = () => {
             "Engineering": "src/assets/WoWProffesions/engineering.webp",
             "Enchanting": "src/assets/WoWProffesions/enchanting.webp",
             "Jewelcrafting": "src/assets/WoWProffesions/jewlcrafting.jpg",
-            "Inscription": "src/assets/WoWProffesions/inscription.webp",
             "Archaeology": "src/assets/WoWProffesions/archaeology.webp",
             "Cooking": "src/assets/WoWProffesions/cooking.webp",
             "Fishing": "src/assets/WoWProffesions/fishing.webp",
@@ -250,117 +249,93 @@ const WoWRetail = () => {
     }
 
     return (
-        <div
-            className="min-h-screen flex flex-col bg-cover bg-center"
-            style={{
-                backgroundImage: !isRolling && race ? `url(${getRaceImageSrc()})` : 'none',
-                backgroundColor: isRolling ? 'black' : undefined
-            }}
-        >
-            <div className="invisible text-center">
-                <img className="mx-auto max-h-36 w-auto drop-shadow-xl visible" src={wowRetailTitle} alt="Title" />
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
+            <div className="text-center mb-8">
+                <img src={wowRetailTitle} alt="WoW Retail" className="w-64 h-auto mx-auto mb-4" />
+                <h1 className="text-2xl font-bold mb-2">WoW Retail Character Randomizer</h1>
+                <p className="text-gray-400">Click the button below to randomize your character!</p>
             </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+                {/* Faction Card */}
+                <motion.div
+                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <h2 className={`text-xl font-bold mb-4 ${factionColors[faction]}`}>Faction</h2>
+                    <div className="flex items-center justify-center">
+                        <img
+                            src={factionImageSrc}
+                            alt={faction}
+                            className="w-32 h-32 object-contain"
+                        />
+                    </div>
+                    <p className="text-center mt-4 text-lg">{faction}</p>
+                </motion.div>
 
-            {/* Main Content */}
-            <div className="flex-1 flex flex-col p-4 md:p-8 gap-6 max-w-2xl mx-auto w-full">
-                {/* Character Info */}
-                <div className="space-y-8 w-full">
-                    {/* Faction */}
-                    <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
+                {/* Race Card */}
+                <motion.div
+                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                    <h2 className="text-xl font-bold mb-4 text-purple-400">Race</h2>
+                    <div className="flex items-center justify-center">
+                        <img
+                            src={getRaceImageSrc()}
+                            alt={race}
+                            className="w-32 h-32 object-contain"
+                        />
+                    </div>
+                    <p className="text-center mt-4 text-lg">{race}</p>
+                </motion.div>
+
+                {/* Class Card */}
+                <motion.div
+                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                    <h2 className={`text-xl font-bold mb-4 ${classColors[className]}`}>Class</h2>
+                    <div className="flex items-center justify-center">
+                        <img
+                            src={getClassImageSrc()}
+                            alt={className}
+                            className="w-32 h-32 object-contain"
+                        />
+                    </div>
+                    <p className="text-center mt-4 text-lg">{className}</p>
+                </motion.div>
+
+                {/* Professions Card */}
+                <motion.div
+                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                    <h2 className="text-xl font-bold mb-4 text-yellow-400">Professions</h2>
+                    <div className="grid grid-cols-2 gap-4">
+                        {selectedProfessions.map((profession, index) => (
+                            <div key={index} className="flex flex-col items-center">
                                 <img
-                                    src={factionImageSrc}
-                                    alt={faction}
-                                    className="w-full h-full object-cover"
+                                    src={getProfessionImageSrc(profession)}
+                                    alt={profession}
+                                    className="w-16 h-16 object-contain"
                                 />
+                                <p className="text-center mt-2 text-sm">{profession}</p>
                             </div>
-                            <div>
-                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Faction</h3>
-                                <p className={`text-2xl font-medium ${factionColors[faction] || "text-white"}`}>{faction}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Race */}
-                    <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
-                                <img
-                                    src={getRaceImageSrc()}
-                                    alt={race}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div>
-                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Race</h3>
-                                <p className="text-2xl text-yellow-200 font-medium">{race}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Class */}
-                    <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
-                                <img
-                                    src={getClassImageSrc()}
-                                    alt={className}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div>
-                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Class</h3>
-                                <p className={`text-2xl font-medium ${classColors[className] || "text-white"}`}>{className}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Professions */}
-                    <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                    >
-                        <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-4">Professions</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {selectedProfessions.map((profession, index) => (
-                                <div key={index} className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
-                                        <img
-                                            src={getProfessionImageSrc(profession)}
-                                            alt={profession}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-lg text-yellow-200">{profession}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
 
-            {/* Footer with Roll Button */}
-            <div className="bg-gradient-to-b from-amber-600 to-red-800 py-4 border-t border-amber-900 shadow-inner text-center">
-                <RandomizerButton onRoll={() => rollCharacter()} />
+            <div className="mt-8">
+                <RandomizerButton onRoll={rollCharacter} />
             </div>
         </div>
     )

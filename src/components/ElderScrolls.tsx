@@ -4,12 +4,19 @@ import RandomizerButton from "./RandomizerButton.tsx";
 
 // --- Logic section ---
 
-const morality = ["Good", "Evil", "Neutral"]
+const morality = ["Good", "Evil", "Neutral"] as const;
+type Morality = typeof morality[number];
 
-const sexOptions = ["Male", "Female"]
+const sexOptions = ["Male", "Female"] as const;
+type Sex = typeof sexOptions[number];
+
+interface Build {
+    name: string;
+    link: string;
+}
 
 // Builds categorized by game with their wiki links
-const builds = {
+const builds: Record<string, Build[]> = {
     "Oblivion": [
         { "name": "Custom class", "link": "https://elderscrolls.fandom.com/wiki/Classes_(Oblivion)#Custom_class" },
         { "name": "Acrobat", "link": "https://elderscrolls.fandom.com/wiki/Classes_(Oblivion)#Acrobat" },
@@ -33,15 +40,11 @@ const builds = {
         { "name": "Thief", "link": "https://elderscrolls.fandom.com/wiki/Classes_(Oblivion)#Thief" },
         { "name": "Warrior", "link": "https://elderscrolls.fandom.com/wiki/Classes_(Oblivion)#Warrior" },
         { "name": "Witchhunter", "link": "https://elderscrolls.fandom.com/wiki/Classes_(Oblivion)#Witchhunter" },
-
-    ]
-,
+    ],
     "Skyrim": [
-
         { name: "Stealth Archer", link: "https://www.thegamer.com/skyrim-stealth-archer-build/" }
     ],
     "Morrowind": [
-
         { "name": "Acrobat", "link": "https://en.uesp.net/wiki/Morrowind:Classes#Acrobat" },
         { "name": "Agent", "link": "https://en.uesp.net/wiki/Morrowind:Classes#Agent" },
         { "name": "Archer", "link": "https://en.uesp.net/wiki/Morrowind:Classes#Archer" },
@@ -67,7 +70,7 @@ const builds = {
 }
 
 // Build colors based on fallout pip-boy green theme
-const buildColors = {
+const buildColors: Record<string, string> = {
     // Oblivion
     "Custom class": "text-gray-400",
     "Acrobat": "text-pink-400",
@@ -93,9 +96,7 @@ const buildColors = {
     "Witchhunter": "text-fuchsia-500",
 
     // Skyrim
-
     "Stealth Archer": "text-cyan-300",
-
 
     // Morrowind
     "'Acrobat'": "text-pink-400",
@@ -121,31 +122,31 @@ const buildColors = {
     "'Witchhunter'": "text-fuchsia-500",
 }
 
-const moralityColors = {
+const moralityColors: Record<Morality, string> = {
     "Good": "text-blue-500",
     "Evil": "text-red-500",
     "Neutral": "text-green-500",
 }
 
-function randomizeMorality() {
+function randomizeMorality(): Morality {
     const index = Math.floor(Math.random() * morality.length)
     return morality[index]
 }
 
-function randomizeSex() {
+function randomizeSex(): Sex {
     return sexOptions[Math.floor(Math.random() * sexOptions.length)]
 }
 
-function randomizeBuild(game) {
+function randomizeBuild(game: string): Build {
     const gameBuilds = builds[game]
     return gameBuilds[Math.floor(Math.random() * gameBuilds.length)]
 }
 
 const ElderScrolls = () => {
-    const [selectedGame, setSelectedGame] = useState("Oblivion")
-    const [currentMorality, setMorality] = useState('')
-    const [sex, setSex] = useState('')
-    const [build, setBuild] = useState(null)
+    const [selectedGame, setSelectedGame] = useState<string>("Oblivion")
+    const [currentMorality, setMorality] = useState<Morality>('Good')
+    const [sex, setSex] = useState<Sex>('Male')
+    const [build, setBuild] = useState<Build | null>(null)
     const [isRolling, setIsRolling] = useState(true)
 
     const rollCharacter = () => {
@@ -168,15 +169,15 @@ const ElderScrolls = () => {
     }, [selectedGame])
 
     // Morality image paths
-    const moralityImageSrc = {
+    const moralityImageSrc: Record<Morality, string> = {
         "Evil": "src/assets/ElderScrollsMisc/Devil.jpg",
         "Good": "src/assets/ElderScrollsMisc/good.webp",
         "Neutral": "src/assets/ElderScrollsMisc/neutral.webp",
-    }[currentMorality] || "src/assets/ElderScrollsMisc/neutral.jpg";
+    }
 
     // Sex image paths
     const getSexImageSrc = () => {
-        const sexMap = {
+        const sexMap: Record<Sex, string> = {
             "Male": "src/assets/ElderScrollsMisc/male.webp",
             "Female": "src/assets/ElderScrollsMisc/female.png",
         }
@@ -187,7 +188,7 @@ const ElderScrolls = () => {
     const getBuildImageSrc = () => {
         if (!build) return "src/assets/FalloutBuilds/placeholder.png";
 
-        const buildMap = {
+        const buildMap: Record<string, string> = {
             // Oblivion
             "Custom class": "src/assets/Oblivion/Custom class.png",
             "Acrobat": "src/assets/Oblivion/Acrobat.webp",
@@ -212,10 +213,8 @@ const ElderScrolls = () => {
             "Warrior": "src/assets/Oblivion/Warrior.webp",
             "Witchhunter": "src/assets/Oblivion/Witchhunter.webp",
 
-
             // Skyrim
             "Stealth Archer": "src/assets/Oblivion/Archer.webp",
-
 
             // Morrowind
             "'Acrobat'": "src/assets/Oblivion/Acrobat.webp",
@@ -239,18 +238,19 @@ const ElderScrolls = () => {
             "'Thief'": "src/assets/Oblivion/Thief.webp",
             "'Warrior'": "src/assets/Oblivion/Warrior.webp",
             "'Witchhunter'": "src/assets/Oblivion/Witchhunter.webp",
-
         }
         return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
     }
 
     // Fallout game logos
-    const gameImageSrc = {
-        "Oblivion": "src/assets/Oblivion/Oblivion-logo.png",
-        "Skyrim": "src/assets/Skyrim/Skyrim-logo.png",
-        "Morrowind": "src/assets/Morrowind/Morrowind-logo.png"
+    const gameImageSrc: Record<string, string> = {
+        "Oblivion": "src/assets/Oblivion/oblivionLogo.png",
+        "Skyrim": "src/assets/Skyrim/skyrimLogo.png",
+        "Morrowind": "src/assets/Morrowind/morrowindLogo.png",
     }
 
+    // @ts-ignore
+    // @ts-ignore
     return (
         <div
             className="min-h-screen flex flex-col bg-cover bg-center"
@@ -296,13 +296,14 @@ const ElderScrolls = () => {
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
                                 <img
-                                    src={moralityImageSrc}
+                                    src={moralityImageSrc[currentMorality]}
                                     alt={currentMorality}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div>
                                 <h3 className="text-gray-400 text-sm uppercase tracking-wider">Morality</h3>
+
                                 <p className={`text-2xl font-medium ${moralityColors[currentMorality] || "text-white"}`}>{currentMorality}</p>
                             </div>
                         </div>

@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
 
+// Add prop types for the component
+interface RandomizerButtonProps {
+    onRoll: () => void;
+    label?: string;
+    loadingLabel?: string;
+}
+
 export default function RandomizerButton({
-                                             onRoll,
-                                             label = "Roll New Character",
-                                             loadingLabel = "Rolling..."
-                                         }) {
+    onRoll,
+    label = "Roll New Character",
+    loadingLabel = "Rolling..."
+}: RandomizerButtonProps) {
     const [isRolling, setIsRolling] = useState(false);
     const [shake, setShake] = useState(false);
     const [timeBasedColors, setTimeBasedColors] = useState({
@@ -19,7 +26,7 @@ export default function RandomizerButton({
     useEffect(() => {
         const updateColors = () => {
             const hour = new Date().getHours();
-            let colors = {};
+            let colors;
 
             if (hour >= 5 && hour < 8) {
                 colors = {
