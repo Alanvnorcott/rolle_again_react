@@ -172,7 +172,7 @@ const WowClassicHardcore = () => {
                 <div className="space-y-8 w-full">
                     {/* Faction */}
                     <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5 }}
@@ -194,7 +194,7 @@ const WowClassicHardcore = () => {
 
                     {/* Race */}
                     <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -216,7 +216,7 @@ const WowClassicHardcore = () => {
 
                     {/* Class */}
                     <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
@@ -238,7 +238,7 @@ const WowClassicHardcore = () => {
 
                     {/* Professions */}
                     <motion.div
-                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg"
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5, delay: 0.6 }}

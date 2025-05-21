@@ -288,7 +288,7 @@ const ElderScrolls = () => {
                 <div className="space-y-8 w-full">
                     {/* Morality */}
                     <motion.div
-                        className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg"
+                        className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5 }}
@@ -311,7 +311,7 @@ const ElderScrolls = () => {
 
                     {/* Sex */}
                     <motion.div
-                        className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg"
+                        className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -334,7 +334,7 @@ const ElderScrolls = () => {
                     {/* Build with Link */}
                     {build && (
                         <motion.div
-                            className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg"
+                            className="bg-gray-900 bg-opacity-80 rounded-lg p-6 border-2 border-green-800 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
                             initial={{ x: -100, opacity: 0 }}
                             animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
                             transition={{ duration: 0.5, delay: 0.4 }}

@@ -147,8 +147,10 @@ const WoWRetail = () => {
     const [race, setRace] = useState<Race>('Human')
     const [className, setClassName] = useState<Class>('Warrior')
     const [selectedProfessions, setSelectedProfessions] = useState<Profession[]>([])
+    const [isRolling, setIsRolling] = useState(false)
 
     const rollCharacter = () => {
+        setIsRolling(true)
         setTimeout(() => {
             const newFaction = randomizeFaction()
             const newRace = randomizeRace(newFaction)
@@ -159,6 +161,7 @@ const WoWRetail = () => {
             setRace(newRace)
             setClassName(newClass)
             setSelectedProfessions(newProfessions)
+            setIsRolling(false)
         }, 500)
     }
 
@@ -249,92 +252,115 @@ const WoWRetail = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
-            <div className="text-center mb-8">
-                <img src={wowRetailTitle} alt="WoW Retail" className="w-64 h-auto mx-auto mb-4" />
-                <h1 className="text-2xl font-bold mb-2">WoW Retail Character Randomizer</h1>
-                <p className="text-gray-400">Click the button below to randomize your character!</p>
+        <div
+            className="min-h-screen flex flex-col bg-cover bg-center"
+            style={{
+                backgroundImage: !isRolling && race ? `url(${getRaceImageSrc()})` : 'none',
+                backgroundColor: isRolling ? 'black' : undefined
+            }}
+        >
+            <div className="invisible text-center">
+                <img className="mx-auto max-h-36 w-auto drop-shadow-xl visible" src={wowRetailTitle} alt="Title" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
-                {/* Faction Card */}
-                <motion.div
-                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <h2 className={`text-xl font-bold mb-4 ${factionColors[faction]}`}>Faction</h2>
-                    <div className="flex items-center justify-center">
-                        <img
-                            src={factionImageSrc}
-                            alt={faction}
-                            className="w-32 h-32 object-contain"
-                        />
-                    </div>
-                    <p className="text-center mt-4 text-lg">{faction}</p>
-                </motion.div>
-
-                {/* Race Card */}
-                <motion.div
-                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                    <h2 className="text-xl font-bold mb-4 text-purple-400">Race</h2>
-                    <div className="flex items-center justify-center">
-                        <img
-                            src={getRaceImageSrc()}
-                            alt={race}
-                            className="w-32 h-32 object-contain"
-                        />
-                    </div>
-                    <p className="text-center mt-4 text-lg">{race}</p>
-                </motion.div>
-
-                {/* Class Card */}
-                <motion.div
-                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <h2 className={`text-xl font-bold mb-4 ${classColors[className]}`}>Class</h2>
-                    <div className="flex items-center justify-center">
-                        <img
-                            src={getClassImageSrc()}
-                            alt={className}
-                            className="w-32 h-32 object-contain"
-                        />
-                    </div>
-                    <p className="text-center mt-4 text-lg">{className}</p>
-                </motion.div>
-
-                {/* Professions Card */}
-                <motion.div
-                    className="bg-gray-800 rounded-lg p-6 shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                    <h2 className="text-xl font-bold mb-4 text-yellow-400">Professions</h2>
-                    <div className="grid grid-cols-2 gap-4">
-                        {selectedProfessions.map((profession, index) => (
-                            <div key={index} className="flex flex-col items-center">
+            {/* Main Content */}
+            <div className="flex-1 flex flex-col p-4 md:p-8 gap-6 max-w-2xl mx-auto w-full">
+                {/* Character Info */}
+                <div className="space-y-8 w-full">
+                    {/* Faction */}
+                    <motion.div
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
                                 <img
-                                    src={getProfessionImageSrc(profession)}
-                                    alt={profession}
-                                    className="w-16 h-16 object-contain"
+                                    src={factionImageSrc}
+                                    alt={`Faction: ${faction}`}
+                                    className="w-full h-full object-cover"
                                 />
-                                <p className="text-center mt-2 text-sm">{profession}</p>
                             </div>
-                        ))}
-                    </div>
-                </motion.div>
+                            <div>
+                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Faction</h3>
+                                <p className={`text-2xl font-medium ${factionColors[faction] || "text-white"}`}>{faction}</p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Race */}
+                    <motion.div
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
+                                <img
+                                    src={getRaceImageSrc()}
+                                    alt={`Race: ${race}`}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Race</h3>
+                                <p className="text-2xl text-yellow-200 font-medium">{race}</p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Class */}
+                    <motion.div
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
+                                <img
+                                    src={getClassImageSrc()}
+                                    alt={`Class: ${className}`}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h3 className="text-gray-400 text-sm uppercase tracking-wider">Class</h3>
+                                <p className={`text-2xl font-medium ${classColors[className] || "text-white"}`}>{className}</p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Professions */}
+                    <motion.div
+                        className="bg-gray-900 rounded-lg p-6 border-2 border-gray-700 shadow-lg min-h-[120px] hover:shadow-xl transition-shadow"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: isRolling ? -100 : 0, opacity: isRolling ? 0 : 1 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                    >
+                        <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-4">Professions</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {selectedProfessions.map((profession, index) => (
+                                <div key={index} className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
+                                        <img
+                                            src={getProfessionImageSrc(profession)}
+                                            alt={`Profession: ${profession}`}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <p className="text-lg text-yellow-200">{profession}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
             </div>
 
-            <div className="mt-8">
+            {/* Footer with Roll Button */}
+            <div className="bg-gradient-to-b from-[#3e2c20] to-[#1c1b18] py-4 border-b border-[#a97142] shadow-inner text-center">
                 <RandomizerButton onRoll={rollCharacter} />
             </div>
         </div>
