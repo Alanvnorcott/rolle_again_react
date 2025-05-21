@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react"
 import './index.css'
 
 import WowClassic from "./components/WowClassicHC.tsx"
@@ -10,7 +11,8 @@ import WoWRetail from "./components/WoWRetail.tsx";
 import BG3 from "./components/BG3.tsx";
 import Fallout from "./components/Fallout.tsx";
 import ElderScrolls from "./components/ElderScrolls.tsx";
-import About from "./components/About.tsx"; // or whatever your home component is
+import About from "./components/About.tsx";
+
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -24,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
                 <Route path="/fo" element={<Fallout />} />
                 <Route path="/elderScrolls" element={<ElderScrolls />} />
                 <Route path="/about" element={<About />} />
+                <Analytics />
             </Routes>
         </BrowserRouter>
     </StrictMode>,
