@@ -35,7 +35,7 @@ const Navbar = () => {
                             >
                                 <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-#3e2c20 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="src/assets/GameIcons/WowClassic.png"
+                                        src="/images/GameIcons/wowClassicLogo.png"
                                         alt="WoW Classic"
                                         className="w-full h-full object-cover"
                                     />
@@ -49,7 +49,7 @@ const Navbar = () => {
                             >
                                 <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/src/assets/GameIcons/wowRetail.avif"
+                                        src="/images/GameIcons/wowRetailLogo.png"
                                         alt="WoW Retail"
                                         className="w-full h-full object-cover"
                                     />
@@ -63,7 +63,7 @@ const Navbar = () => {
                             >
                                 <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/src/assets/GameIcons/bg3.avif"
+                                        src="/images/GameIcons/bg3title.png"
                                         alt="BG3"
                                         className="w-full h-full object-cover"
                                     />
@@ -76,7 +76,7 @@ const Navbar = () => {
                             >
                                 <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-green-200 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/src/assets/GameIcons/fallout.webp"
+                                        src="/images/GameIcons/fallout.webp"
                                         alt="Fallout"
                                         className="w-full h-full object-cover"
                                     />
@@ -89,7 +89,7 @@ const Navbar = () => {
                             >
                                 <div className="w-14 h-6 mr-2 rounded-full bg-gray-900 border border-pink-500 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/src/assets/GameIcons/elderscrolls.webp"
+                                        src="/images/GameIcons/elderscrolls.webp"
                                         alt="Elder Scrolls"
                                         className="w-full h-full object-cover"
                                     />
@@ -157,7 +157,7 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/wowClassic.png"
+                                src="/images/GameIcons/wowClassicLogo.png"
                                 alt="WoW Classic HC"
                                 className="w-full h-full object-cover"
                             />
@@ -171,7 +171,7 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/wowRetail.jpg"
+                                src="/images/GameIcons/wowRetailLogo.png"
                                 alt="WoW Retail"
                                 className="w-full h-full object-cover"
                             />
@@ -185,7 +185,7 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/bg3.avif"
+                                src="/images/GameIcons/bg3title.png"
                                 alt="Baldurs Gate 3"
                                 className="w-full h-full object-cover"
                             />
@@ -199,7 +199,7 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/fallout.webp"
+                                src="/images/GameIcons/fallout.webp"
                                 alt="Fallout"
                                 className="w-full h-full object-cover"
                             />
@@ -212,7 +212,7 @@ const Navbar = () => {
                     >
                         <div className="w-6 h-6 mr-2 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden">
                             <img
-                                src="src/assets/GameIcons/elderscrolls.webp"
+                                src="/images/GameIcons/elderscrolls.webp"
                                 alt="Elder Scrolls"
                                 className="w-full h-full object-cover"
                             />

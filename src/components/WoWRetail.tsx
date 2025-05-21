@@ -171,84 +171,84 @@ const WoWRetail = () => {
 
     // Faction image paths
     const factionImageSrc = faction === "Horde"
-        ? "src/assets/hordeIcon.png"
-        : "src/assets/allyIcon.png"
+        ? "/images/hordeIcon.png"
+        : "/images/allyIcon.png"
 
     // Race image paths - update with actual paths when available
     const getRaceImageSrc = () => {
         const raceMap: Record<Race, string> = {
             // Horde Races
-            "Orc": "src/assets/WoWRaces/orc.avif",
-            "Tauren": "src/assets/WoWRaces/tauren.jpg",
-            "Undead": "src/assets/WoWRaces/undead.jpg",
-            "Troll": "src/assets/WoWRaces/troll.jpg",
-            "Blood Elf": "src/assets/WoWRaces/belf.webp",
-            "Goblin": "src/assets/WoWRaces/goblin.webp",
-            "Nightborne": "src/assets/WoWRaces/nightborne.webp",
-            "Highmountain Tauren": "src/assets/WoWRaces/hmtauren.jpg",
-            "Mag'har Orc": "src/assets/WoWRaces/magorc.webp",
-            "Zandalari Troll": "src/assets/WoWRaces/ztroll.jpg",
-            "Vulpera": "src/assets/WoWRaces/vulpera.jpg",
+            "Orc": "/images/WoWRaces/orc.avif",
+            "Tauren": "/images/WoWRaces/tauren.jpg",
+            "Undead": "/images/WoWRaces/undead.jpg",
+            "Troll": "/images/WoWRaces/troll.jpg",
+            "Blood Elf": "/images/WoWRaces/belf.webp",
+            "Goblin": "/images/WoWRaces/goblin.webp",
+            "Nightborne": "/images/WoWRaces/nightborne.webp",
+            "Highmountain Tauren": "/images/WoWRaces/hmtauren.jpg",
+            "Mag'har Orc": "/images/WoWRaces/magorc.webp",
+            "Zandalari Troll": "/images/WoWRaces/ztroll.jpg",
+            "Vulpera": "/images/WoWRaces/vulpera.jpg",
 
             // Alliance Races
-            "Human": "src/assets/WoWRaces/human.jpg",
-            "Dwarf": "src/assets/WoWRaces/dwarf.jpg",
-            "Night Elf": "src/assets/WoWRaces/nelf.avif",
-            "Gnome": "src/assets/WoWRaces/gnome.webp",
-            "Draenei": "src/assets/WoWRaces/draenei.jpg",
-            "Worgen": "src/assets/WoWRaces/worgen.webp",
-            "Void Elf": "src/assets/WoWRaces/velf.webp",
-            "Lightforged Draenei": "src/assets/WoWRaces/lightforged.webp",
-            "Dark Iron Dwarf": "src/assets/WoWRaces/darkiron.webp",
-            "Kul Tiran": "src/assets/WoWRaces/kultiran.webp",
-            "Mechagnome": "src/assets/WoWRaces/mechagnome.webp",
+            "Human": "/images/WoWRaces/human.jpg",
+            "Dwarf": "/images/WoWRaces/dwarf.jpg",
+            "Night Elf": "/images/WoWRaces/nelf.avif",
+            "Gnome": "/images/WoWRaces/gnome.webp",
+            "Draenei": "/images/WoWRaces/draenei.jpg",
+            "Worgen": "/images/WoWRaces/worgen.webp",
+            "Void Elf": "/images/WoWRaces/velf.webp",
+            "Lightforged Draenei": "/images/WoWRaces/lightforged.webp",
+            "Dark Iron Dwarf": "/images/WoWRaces/darkiron.webp",
+            "Kul Tiran": "/images/WoWRaces/kultiran.webp",
+            "Mechagnome": "/images/WoWRaces/mechagnome.webp",
 
             // Shared Races
-            "Pandaren": "src/assets/WoWRaces/pandaren.jpg",
-            "Dracthyr": "src/assets/WoWRaces/dracthyr.webp"
+            "Pandaren": "/images/WoWRaces/pandaren.jpg",
+            "Dracthyr": "/images/WoWRaces/dracthyr.webp"
         }
-        return raceMap[race] || "src/assets/races/placeholder.png"
+        return raceMap[race] || "/images/races/placeholder.png"
     }
 
     // Class image paths
     const getClassImageSrc = () => {
         const classMap: Record<Class, string> = {
-            "Warrior": "src/assets/WoWClasses/warrior.webp",
-            "Paladin": "src/assets/WoWClasses/paladin.webp",
-            "Hunter": "src/assets/WoWClasses/hunter.webp",
-            "Rogue": "src/assets/WoWClasses/rogue.webp",
-            "Priest": "src/assets/WoWClasses/priest.webp",
-            "Shaman": "src/assets/WoWClasses/shaman.webp",
-            "Mage": "src/assets/WoWClasses/mage.webp",
-            "Warlock": "src/assets/WoWClasses/warlock.webp",
-            "Druid": "src/assets/WoWClasses/druid.webp",
-            "Death Knight": "src/assets/WoWClasses/dk.webp",
-            "Monk": "src/assets/WoWClasses/monk.webp",
-            "Demon Hunter": "src/assets/WoWClasses/demonhunter.webp",
-            "Evoker": "src/assets/WoWClasses/evoker.png"
+            "Warrior": "/images/WoWClasses/warrior.webp",
+            "Paladin": "/images/WoWClasses/paladin.webp",
+            "Hunter": "/images/WoWClasses/hunter.webp",
+            "Rogue": "/images/WoWClasses/rogue.webp",
+            "Priest": "/images/WoWClasses/priest.webp",
+            "Shaman": "/images/WoWClasses/shaman.webp",
+            "Mage": "/images/WoWClasses/mage.webp",
+            "Warlock": "/images/WoWClasses/warlock.webp",
+            "Druid": "/images/WoWClasses/druid.webp",
+            "Death Knight": "/images/WoWClasses/dk.webp",
+            "Monk": "/images/WoWClasses/monk.webp",
+            "Demon Hunter": "/images/WoWClasses/demonhunter.webp",
+            "Evoker": "/images/WoWClasses/evoker.png"
         }
-        return classMap[className] || "src/assets/classes/placeholder.png"
+        return classMap[className] || "/images/classes/placeholder.png"
     }
 
     // Profession image paths
     const getProfessionImageSrc = (profession: Profession) => {
         const professionMap: Record<Profession, string> = {
-            "Mining": "src/assets/WoWProffesions/mining.webp",
-            "Herbalism": "src/assets/WoWProffesions/herbalism.webp",
-            "Blacksmithing": "src/assets/WoWProffesions/blacksmithing.webp",
-            "Alchemy": "src/assets/WoWProffesions/alchemy.jpg",
-            "Skinning": "src/assets/WoWProffesions/skinning.webp",
-            "Leatherworking": "src/assets/WoWProffesions/leatherworking.webp",
-            "Tailoring": "src/assets/WoWProffesions/tailoring.webp",
-            "Engineering": "src/assets/WoWProffesions/engineering.webp",
-            "Enchanting": "src/assets/WoWProffesions/enchanting.webp",
-            "Jewelcrafting": "src/assets/WoWProffesions/jewlcrafting.jpg",
-            "Archaeology": "src/assets/WoWProffesions/archaeology.webp",
-            "Cooking": "src/assets/WoWProffesions/cooking.webp",
-            "Fishing": "src/assets/WoWProffesions/fishing.webp",
-            "First Aid": "src/assets/WoWProffesions/firstaid.webp"
+            "Mining": "/images/WoWProffesions/mining.webp",
+            "Herbalism": "/images/WoWProffesions/herbalism.webp",
+            "Blacksmithing": "/images/WoWProffesions/blacksmithing.webp",
+            "Alchemy": "/images/WoWProffesions/alchemy.jpg",
+            "Skinning": "/images/WoWProffesions/skinning.webp",
+            "Leatherworking": "/images/WoWProffesions/leatherworking.webp",
+            "Tailoring": "/images/WoWProffesions/tailoring.webp",
+            "Engineering": "/images/WoWProffesions/engineering.webp",
+            "Enchanting": "/images/WoWProffesions/enchanting.webp",
+            "Jewelcrafting": "/images/WoWProffesions/jewlcrafting.jpg",
+            "Archaeology": "/images/WoWProffesions/archaeology.webp",
+            "Cooking": "/images/WoWProffesions/cooking.webp",
+            "Fishing": "/images/WoWProffesions/fishing.webp",
+            "First Aid": "/images/WoWProffesions/firstaid.webp"
         }
-        return professionMap[profession] || "src/assets/professions/placeholder.png"
+        return professionMap[profession] || "/images/professions/placeholder.png"
     }
 
     return (

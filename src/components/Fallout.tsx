@@ -146,71 +146,71 @@ const Fallout = () => {
 
     // Morality image paths
     const moralityImageSrc: Record<Morality, string> = {
-        "Evil": "src/assets/FalloutMisc/Devil.webp",
-        "Good": "src/assets/FalloutMisc/good.webp",
-        "Neutral": "src/assets/FalloutMisc/neutral.webp",
+        "Evil": "/images/FalloutMisc/Devil.webp",
+        "Good": "/images/FalloutMisc/good.webp",
+        "Neutral": "/images/FalloutMisc/neutral.webp",
     }
 
     // Sex image paths
     const getSexImageSrc = () => {
         const sexMap: Record<Sex, string> = {
-            "Male": "src/assets/FalloutMisc/vaultBoy.png",
-            "Female": "src/assets/FalloutMisc/vaultGirl.png",
+            "Male": "/images/FalloutMisc/vaultBoy.png",
+            "Female": "/images/FalloutMisc/vaultGirl.png",
         }
-        return sexMap[sex] || "src/assets/FalloutCharacters/placeholder.png"
+        return sexMap[sex] || "/images/FalloutCharacters/placeholder.png"
     }
 
     // Build image paths
     const getBuildImageSrc = () => {
-        if (!build) return "src/assets/FalloutBuilds/placeholder.png";
+        if (!build) return "/images/FalloutBuilds/placeholder.png";
 
         const buildMap: Record<string, string> = {
             // Fallout 4
-            "Too Strong": "src/assets/Fallout4/icons/strong.webp",
-            "V.A.T.S": "src/assets/Fallout4/icons/vats.webp",
-            "Lucky": "src/assets/Fallout4/icons/lucky.webp",
-            "Charisma Guru": "src/assets/Fallout4/icons/charisma.webp",
-            "Agile": "src/assets/Fallout4/icons/agile.webp",
-            "Genius": "src/assets/Fallout4/icons/genius.webp",
-            "Perceptive": "src/assets/Fallout4/icons/perceptive.webp",
-            "Stealth": "src/assets/Fallout4/icons/stealth.webp",
-            "Power Armor": "src/assets/Fallout4/icons/armor.webp",
-            "Jack o' All": "src/assets/Fallout4/icons/balanced.webp",
+            "Too Strong": "/images/Fallout4/icons/strong.webp",
+            "V.A.T.S": "/images/Fallout4/icons/vats.webp",
+            "Lucky": "/images/Fallout4/icons/lucky.webp",
+            "Charisma Guru": "/images/Fallout4/icons/charisma.webp",
+            "Agile": "/images/Fallout4/icons/agile.webp",
+            "Genius": "/images/Fallout4/icons/genius.webp",
+            "Perceptive": "/images/Fallout4/icons/perceptive.webp",
+            "Stealth": "/images/Fallout4/icons/stealth.webp",
+            "Power Armor": "/images/Fallout4/icons/armor.webp",
+            "Jack o' All": "/images/Fallout4/icons/balanced.webp",
 
             // New Vegas
-            "Brawler": "src/assets/FalloutNV/icons/brawler.webp",
-            "Pistol Toter": "src/assets/FalloutNV/icons/pistol.webp",
-            "Gunslinger": "src/assets/FalloutNV/icons/gunslinger.webp",
-            "Shotgun Specialist": "src/assets/FalloutNV/icons/shotgunspec.webp",
-            "Sniper": "src/assets/FalloutNV/icons/sniper.webp",
-            "Laser Weapons": "src/assets/FalloutNV/icons/laser.webp",
-            "Explosives!": "src/assets/FalloutNV/icons/explosives.webp",
-            "Super-human": "src/assets/FalloutNV/icons/super.webp",
-            "Sweet Talker": "src/assets/FalloutNV/icons/sweet.webp",
-            "Balanced": "src/assets/FalloutNV/icons/balanced.webp",
+            "Brawler": "/images/FalloutNV/icons/brawler.webp",
+            "Pistol Toter": "/images/FalloutNV/icons/pistol.webp",
+            "Gunslinger": "/images/FalloutNV/icons/gunslinger.webp",
+            "Shotgun Specialist": "/images/FalloutNV/icons/shotgunspec.webp",
+            "Sniper": "/images/FalloutNV/icons/sniper.webp",
+            "Laser Weapons": "/images/FalloutNV/icons/laser.webp",
+            "Explosives!": "/images/FalloutNV/icons/explosives.webp",
+            "Super-human": "/images/FalloutNV/icons/super.webp",
+            "Sweet Talker": "/images/FalloutNV/icons/sweet.webp",
+            "Balanced": "/images/FalloutNV/icons/balanced.webp",
 
             // Fallout 3
-            "Near-Perfection": "src/assets/Fallout3/icons/perfect.webp",
-            "Scavenger": "src/assets/Fallout3/icons/scavenger.webp",
-            "Warmonger": "src/assets/Fallout3/icons/warmonger.webp",
-            "Casual": "src/assets/Fallout3/icons/casual.webp",
-            "First-Person Shooter": "src/assets/Fallout3/icons/firstpersonshooter.webp",
-            "Sharpshooter": "src/assets/Fallout3/icons/sharpshooter.webp",
-            "Ninja": "src/assets/Fallout3/icons/ninja.webp",
-            "Fighter": "src/assets/Fallout3/icons/fighter.webp",
-            "Diplomat": "src/assets/Fallout3/icons/diplomat.webp",
-            "Mix-and-Match": "src/assets/Fallout3/icons/mix.webp",
-            "Monk": "src/assets/Fallout3/icons/monk.webp",
-            "True Wanderer": "src/assets/Fallout3/icons/wanderer.webp"
+            "Near-Perfection": "/images/Fallout3/icons/perfect.webp",
+            "Scavenger": "/images/Fallout3/icons/scavenger.webp",
+            "Warmonger": "/images/Fallout3/icons/warmonger.webp",
+            "Casual": "/images/Fallout3/icons/casual.webp",
+            "First-Person Shooter": "/images/Fallout3/icons/firstpersonshooter.webp",
+            "Sharpshooter": "/images/Fallout3/icons/sharpshooter.webp",
+            "Ninja": "/images/Fallout3/icons/ninja.webp",
+            "Fighter": "/images/Fallout3/icons/fighter.webp",
+            "Diplomat": "/images/Fallout3/icons/diplomat.webp",
+            "Mix-and-Match": "/images/Fallout3/icons/mix.webp",
+            "Monk": "/images/Fallout3/icons/monk.webp",
+            "True Wanderer": "/images/Fallout3/icons/wanderer.webp"
         }
-        return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
+        return buildMap[build.name] || "/images/FalloutBuilds/placeholder.png"
     }
 
     // Fallout game logos
     const gameImageSrc: Record<string, string> = {
-        "Fallout 4": "src/assets/Fallout4/fo4Logo.png",
-        "Fallout: New Vegas": "src/assets/FalloutNV/fonvLogo.webp",
-        "Fallout 3": "src/assets/Fallout3/fo3Logo.png"
+        "Fallout 4": "/images/Fallout4/fo4Logo.png",
+        "Fallout: New Vegas": "/images/FalloutNV/fonvLogo.webp",
+        "Fallout 3": "/images/Fallout3/fo3Logo.png"
     }
 
     return (

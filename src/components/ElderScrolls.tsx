@@ -170,83 +170,83 @@ const ElderScrolls = () => {
 
     // Morality image paths
     const moralityImageSrc: Record<Morality, string> = {
-        "Evil": "src/assets/ElderScrollsMisc/Devil.jpg",
-        "Good": "src/assets/ElderScrollsMisc/good.webp",
-        "Neutral": "src/assets/ElderScrollsMisc/neutral.webp",
+        "Evil": "/images/ElderScrollsMisc/Devil.jpg",
+        "Good": "/images/ElderScrollsMisc/good.webp",
+        "Neutral": "/images/ElderScrollsMisc/neutral.webp",
     }
 
     // Sex image paths
     const getSexImageSrc = () => {
         const sexMap: Record<Sex, string> = {
-            "Male": "src/assets/ElderScrollsMisc/male.webp",
-            "Female": "src/assets/ElderScrollsMisc/female.png",
+            "Male": "/images/ElderScrollsMisc/male.webp",
+            "Female": "/images/ElderScrollsMisc/female.png",
         }
-        return sexMap[sex] || "src/assets/ElderScrollsMisc/male.webp"
+        return sexMap[sex] || "/images/ElderScrollsMisc/male.webp"
     }
 
     // Build image paths
     const getBuildImageSrc = () => {
-        if (!build) return "src/assets/FalloutBuilds/placeholder.png";
+        if (!build) return "/images/FalloutBuilds/placeholder.png";
 
         const buildMap: Record<string, string> = {
             // Oblivion
-            "Custom class": "src/assets/Oblivion/Custom class.png",
-            "Acrobat": "src/assets/Oblivion/Acrobat.webp",
-            "Agent": "src/assets/Oblivion/Agent.webp",
-            "Archer": "src/assets/Oblivion/Archer.webp",
-            "Assassin": "src/assets/Oblivion/Assassin.webp",
-            "Barbarian": "src/assets/Oblivion/Barbarian.webp",
-            "Bard": "src/assets/Oblivion/Bard.webp",
-            "Battlemage": "src/assets/Oblivion/Battlemage.webp",
-            "Paladin": "src/assets/Oblivion/Paladin.webp",
-            "Healer": "src/assets/Oblivion/Healer.webp",
-            "Knight": "src/assets/Oblivion/Knight.webp",
-            "Mage": "src/assets/Oblivion/Mage.webp",
-            "Monk": "src/assets/Oblivion/Monk.webp",
-            "Nightblade": "src/assets/Oblivion/Nightblade.webp",
-            "Pilgrim": "src/assets/Oblivion/Pilgrim.webp",
-            "Rogue": "src/assets/Oblivion/Rogue.webp",
-            "Scout": "src/assets/Oblivion/Scout.webp",
-            "Sorcerer": "src/assets/Oblivion/Sorcerer.webp",
-            "Spellsword": "src/assets/Oblivion/Spellsword.webp",
-            "Thief": "src/assets/Oblivion/Thief.webp",
-            "Warrior": "src/assets/Oblivion/Warrior.webp",
-            "Witchhunter": "src/assets/Oblivion/Witchhunter.webp",
+            "Custom class": "/images/Oblivion/acrobat.webp",
+            "Acrobat": "/images/Oblivion/acrobat.webp",
+            "Agent": "/images/Oblivion/agent.webp",
+            "Archer": "/images/Oblivion/archer.webp",
+            "Assassin": "/images/Oblivion/assassin.webp",
+            "Barbarian": "/images/Oblivion/barbarian.webp",
+            "Bard": "/images/Oblivion/bard.webp",
+            "Battlemage": "/images/Oblivion/battlemage.webp",
+            "Paladin": "/images/Oblivion/paladin.webp",
+            "Healer": "/images/Oblivion/healer.webp",
+            "Knight": "/images/Oblivion/knight.webp",
+            "Mage": "/images/Oblivion/mage.webp",
+            "Monk": "/images/Oblivion/monk.webp",
+            "Nightblade": "/images/Oblivion/nightblade.webp",
+            "Pilgrim": "/images/Oblivion/pilgrim.webp",
+            "Rogue": "/images/Oblivion/rogue.webp",
+            "Scout": "/images/Oblivion/scout.webp",
+            "Sorcerer": "/images/Oblivion/sorcerer.webp",
+            "Spellsword": "/images/Oblivion/spellsword.webp",
+            "Thief": "/images/Oblivion/thief.webp",
+            "Warrior": "/images/Oblivion/warrior.webp",
+            "Witchhunter": "/images/Oblivion/witchhunter.webp",
 
             // Skyrim
-            "Stealth Archer": "src/assets/Oblivion/Archer.webp",
+            "Stealth Archer": "/images/Oblivion/archer.webp",
 
             // Morrowind
-            "'Acrobat'": "src/assets/Oblivion/Acrobat.webp",
-            "'Agent'": "src/assets/Oblivion/Agent.webp",
-            "'Archer'": "src/assets/Oblivion/Archer.webp",
-            "'Assassin'": "src/assets/Oblivion/Assassin.webp",
-            "'Barbarian'": "src/assets/Oblivion/Barbarian.webp",
-            "'Bard'": "src/assets/Oblivion/Bard.webp",
-            "'Battlemage'": "src/assets/Oblivion/Battlemage.webp",
-            "'Paladin'": "src/assets/Oblivion/Paladin.webp",
-            "'Healer'": "src/assets/Oblivion/Healer.webp",
-            "'Knight'": "src/assets/Oblivion/Knight.webp",
-            "'Mage'": "src/assets/Oblivion/Mage.webp",
-            "'Monk'": "src/assets/Oblivion/Monk.webp",
-            "'Nightblade'": "src/assets/Oblivion/Nightblade.webp",
-            "'Pilgrim'": "src/assets/Oblivion/Pilgrim.webp",
-            "'Rogue'": "src/assets/Oblivion/Rogue.webp",
-            "'Scout'": "src/assets/Oblivion/Scout.webp",
-            "'Sorcerer'": "src/assets/Oblivion/Sorcerer.webp",
-            "'Spellsword'": "src/assets/Oblivion/Spellsword.webp",
-            "'Thief'": "src/assets/Oblivion/Thief.webp",
-            "'Warrior'": "src/assets/Oblivion/Warrior.webp",
-            "'Witchhunter'": "src/assets/Oblivion/Witchhunter.webp",
+            "'Acrobat'": "/images/Oblivion/acrobat.webp",
+            "'Agent'": "/images/Oblivion/agent.webp",
+            "'Archer'": "/images/Oblivion/archer.webp",
+            "'Assassin'": "/images/Oblivion/assassin.webp",
+            "'Barbarian'": "/images/Oblivion/barbarian.webp",
+            "'Bard'": "/images/Oblivion/bard.webp",
+            "'Battlemage'": "/images/Oblivion/battlemage.webp",
+            "'Paladin'": "/images/Oblivion/paladin.webp",
+            "'Healer'": "/images/Oblivion/healer.webp",
+            "'Knight'": "/images/Oblivion/knight.webp",
+            "'Mage'": "/images/Oblivion/mage.webp",
+            "'Monk'": "/images/Oblivion/monk.webp",
+            "'Nightblade'": "/images/Oblivion/nightblade.webp",
+            "'Pilgrim'": "/images/Oblivion/pilgrim.webp",
+            "'Rogue'": "/images/Oblivion/rogue.webp",
+            "'Scout'": "/images/Oblivion/scout.webp",
+            "'Sorcerer'": "/images/Oblivion/sorcerer.webp",
+            "'Spellsword'": "/images/Oblivion/spellsword.webp",
+            "'Thief'": "/images/Oblivion/thief.webp",
+            "'Warrior'": "/images/Oblivion/warrior.webp",
+            "'Witchhunter'": "/images/Oblivion/witchhunter.webp",
         }
-        return buildMap[build.name] || "src/assets/FalloutBuilds/placeholder.png"
+        return buildMap[build.name] || "/images/FalloutBuilds/placeholder.png"
     }
 
     // Fallout game logos
     const gameImageSrc: Record<string, string> = {
-        "Oblivion": "src/assets/Oblivion/oblivionLogo.png",
-        "Skyrim": "src/assets/Skyrim/skyrimLogo.png",
-        "Morrowind": "src/assets/Morrowind/morrowindLogo.png",
+        "Oblivion": "/images/Oblivion/Oblivion-logo.png",
+        "Skyrim": "/images/Skyrim/skyrimLogo.png",
+        "Morrowind": "/images/Morrowind/morrowind-logo.png",
     }
 
     // @ts-ignore
@@ -255,7 +255,7 @@ const ElderScrolls = () => {
         <div
             className="min-h-screen flex flex-col bg-cover bg-center"
             style={{
-                backgroundImage: `url(src/assets/ElderScrollsMisc/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
+                backgroundImage: `url(/images/ElderScrollsMisc/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
                 backgroundColor: "#111111"
             }}
         >

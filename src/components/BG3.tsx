@@ -112,45 +112,45 @@ const BG3 = () => {
 
     // Morality image paths
     const moralityImageSrc: Record<Morality, string> = {
-        "Villain": "src/assets/BG3Misc/bg3bad.jpg",
-        "Hero": "src/assets/BG3Misc/bg3good.avif",
-        "Neutral": "src/assets/BG3Misc/bg3neutral.jpg",
+        "Villain": "/images/BG3Misc/bg3bad.jpg",
+        "Hero": "/images/BG3Misc/bg3good.avif",
+        "Neutral": "/images/BG3Misc/bg3neutral.jpg",
     }
 
     // Race image paths
     const getRaceImageSrc = () => {
         const raceMap: Record<Race, string> = {
-            "Human": "src/assets/BG3Races/Race_Human.png",
-            "Elf": "src/assets/BG3Races/Race_Elf.png",
-            "Drow": "src/assets/BG3Races/Race_Drow.png",
-            "Half-Elf": "src/assets/BG3Races/Race_Half-Elf.png",
-            "Half-Orc": "src/assets/BG3Races/Race_Half-Orc.png",
-            "Halfling": "src/assets/BG3Races/Race_Halfling.png",
-            "Dwarf": "src/assets/BG3Races/Race_Dwarf.png",
-            "Gnome": "src/assets/BG3Races/Race_Gnome.png",
-            "Tiefling": "src/assets/BG3Races/Race_Tiefling.png",
-            "Githyanki": "src/assets/BG3Races/Race_Githyanki.png",
-            "Dragonborn": "src/assets/BG3Races/Race_Dragonborn.png"
+            "Human": "/images/BG3Races/Race_Human.png",
+            "Elf": "/images/BG3Races/Race_Elf.png",
+            "Drow": "/images/BG3Races/Race_Drow.png",
+            "Half-Elf": "/images/BG3Races/Race_Half-Elf.png",
+            "Half-Orc": "/images/BG3Races/Race_Half-Orc.png",
+            "Halfling": "/images/BG3Races/Race_Halfling.png",
+            "Dwarf": "/images/BG3Races/Race_Dwarf.png",
+            "Gnome": "/images/BG3Races/Race_Gnome.png",
+            "Tiefling": "/images/BG3Races/Race_Tiefling.png",
+            "Githyanki": "/images/BG3Races/Race_Githyanki.png",
+            "Dragonborn": "/images/BG3Races/Race_Dragonborn.png"
         }
-        return raceMap[race] || "src/assets/races/placeholder.png"
+        return raceMap[race] || "/images/races/placeholder.png"
     }
 
     const getClassImageSrc = () => {
         const classMap: Record<Class, string> = {
-            "Barbarian": "src/assets/BG3Classes/barbarian.png",
-            "Bard": "src/assets/BG3Classes/bard.png",
-            "Cleric": "src/assets/BG3Classes/cleric.png",
-            "Druid": "src/assets/BG3Classes/druid.png",
-            "Fighter": "src/assets/BG3Classes/fighter.png",
-            "Monk": "src/assets/BG3Classes/monk.png",
-            "Paladin": "src/assets/BG3Classes/paladin.png",
-            "Ranger": "src/assets/BG3Classes/ranger.png",
-            "Rogue": "src/assets/BG3Classes/rogue.png",
-            "Sorcerer": "src/assets/BG3Classes/sorc.png",
-            "Warlock": "src/assets/BG3Classes/warlock.png",
-            "Wizard": "src/assets/BG3Classes/wizard.png"
+            "Barbarian": "/images/BG3Classes/barbarian.png",
+            "Bard": "/images/BG3Classes/bard.png",
+            "Cleric": "/images/BG3Classes/cleric.png",
+            "Druid": "/images/BG3Classes/druid.png",
+            "Fighter": "/images/BG3Classes/fighter.png",
+            "Monk": "/images/BG3Classes/monk.png",
+            "Paladin": "/images/BG3Classes/paladin.png",
+            "Ranger": "/images/BG3Classes/ranger.png",
+            "Rogue": "/images/BG3Classes/rogue.png",
+            "Sorcerer": "/images/BG3Classes/sorc.png",
+            "Warlock": "/images/BG3Classes/warlock.png",
+            "Wizard": "/images/BG3Classes/wizard.png"
         }
-        return classMap[className] || "src/assets/classes/placeholder.png"
+        return classMap[className] || "/images/classes/placeholder.png"
     }
 
     return (
