@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Analytics } from "@vercel/analytics/react"
 import './index.css'
 
 import WowClassic from "./components/WowClassicHC.tsx"
@@ -26,7 +25,6 @@ createRoot(document.getElementById('root')!).render(
                 <Route path="/fo" element={<Fallout />} />
                 <Route path="/elderScrolls" element={<ElderScrolls />} />
                 <Route path="/about" element={<About />} />
-                <Analytics />
             </Routes>
         </BrowserRouter>
     </StrictMode>,
