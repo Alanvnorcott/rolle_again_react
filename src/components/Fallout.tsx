@@ -217,7 +217,7 @@ const Fallout = () => {
         <div
             className="min-h-screen flex flex-col bg-cover bg-center"
             style={{
-                backgroundImage: `url(src/assets/FalloutMisc/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
+                backgroundImage: `url(/images/FalloutMisc/${selectedGame.toLowerCase().replace(/[:\s]/g, '')}.jpg)`,
                 backgroundColor: "#111111"
             }}
         >
