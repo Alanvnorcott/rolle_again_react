@@ -170,7 +170,7 @@ const ElderScrolls = () => {
 
     // Morality image paths
     const moralityImageSrc: Record<Morality, string> = {
-        "Evil": "/images/ElderScrollsMisc/Devil.jpg",
+        "Evil": "/images/ElderScrollsMisc/devil.jpg",
         "Good": "/images/ElderScrollsMisc/good.webp",
         "Neutral": "/images/ElderScrollsMisc/neutral.webp",
     }
@@ -245,7 +245,7 @@ const ElderScrolls = () => {
     // Fallout game logos
     const gameImageSrc: Record<string, string> = {
         "Oblivion": "/images/Oblivion/Oblivion-logo.png",
-        "Skyrim": "/images/Skyrim/skyrimLogo.png",
+        "Skyrim": "/images/Skyrim/Skyrim-logo.png",
         "Morrowind": "/images/Morrowind/morrowind-logo.png",
     }
 

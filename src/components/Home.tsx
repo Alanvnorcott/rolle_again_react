@@ -20,7 +20,7 @@ const Home = () => {
                     <Link to="/wow-classic" className="group">
                         <div
                             className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform group-hover:scale-105 border border-yellow-700 bg-cover bg-center"
-                            style={{ backgroundImage: "url('/src/assets/GameIcons/WowClassic.png')" }}
+                            style={{ backgroundImage: "url('/images/GameIcons/wowClassicLogo.png')" }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80 p-5 flex flex-col justify-end">
                                 <h3 className="text-2xl font-bold text-white mb-2">WoW Classic</h3>
@@ -35,7 +35,7 @@ const Home = () => {
                     <Link to="/wow-retail" className="group">
                         <div
                             className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform group-hover:scale-105 border border-blue-600 bg-cover bg-center"
-                            style={{ backgroundImage: "url('/src/assets/GameIcons/wowRetail.avif')" }}
+                            style={{ backgroundImage: "url('/images/GameIcons/wowRetail.avif')" }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80 p-5 flex flex-col justify-end">
                                 <h3 className="text-2xl font-bold text-white mb-2">WoW Retail</h3>
@@ -50,7 +50,7 @@ const Home = () => {
                     <Link to="/bg3" className="group">
                         <div
                             className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform group-hover:scale-105 border border-red-600 bg-cover bg-center"
-                            style={{ backgroundImage: "url('/src/assets/GameIcons/bg3.avif')" }}
+                            style={{ backgroundImage: "url('/images/GameIcons/bg3.avif')" }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80 p-5 flex flex-col justify-end">
                                 <h3 className="text-2xl font-bold text-white mb-2">Baldur's Gate 3</h3>
@@ -65,7 +65,7 @@ const Home = () => {
                     <Link to="/fo" className="group">
                         <div
                             className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform group-hover:scale-105 border border-green-200 bg-cover bg-center"
-                            style={{ backgroundImage: "url('/src/assets/GameIcons/fallout.webp')" }}
+                            style={{ backgroundImage: "url('/images/GameIcons/fallout.webp')" }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80 p-5 flex flex-col justify-end">
                                 <h3 className="text-2xl font-bold text-white mb-2">Fallout</h3>
@@ -80,7 +80,7 @@ const Home = () => {
                     <Link to="/elderScrolls" className="group">
                         <div
                             className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform group-hover:scale-105 border border-pink-500 bg-cover bg-center"
-                            style={{ backgroundImage: "url('/src/assets/GameIcons/elderscrolls.webp')" }}
+                            style={{ backgroundImage: "url('/images/GameIcons/elderscrolls.webp')" }}
                         >
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80 p-5 flex flex-col justify-end">
                                 <h3 className="text-2xl font-bold text-white mb-2">Elder Scrolls</h3>

@@ -40,7 +40,7 @@ const About = () => {
                             <li className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-gray-900 border border-yellow-700 flex items-center justify-center overflow-hidden mr-3">
                                     <img
-                                        src="src/assets/GameIcons/WowClassic.png"
+                                        src="/images/GameIcons/wowClassicLogo.png"
                                         alt="WoW Classic"
                                         className="w-full h-full object-cover"
                                     />
@@ -50,7 +50,7 @@ const About = () => {
                             <li className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-gray-900 border border-blue-600 flex items-center justify-center overflow-hidden mr-3">
                                     <img
-                                        src="/src/assets/GameIcons/wowRetail.avif"
+                                        src="/images/GameIcons/wowRetailLogo.png"
                                         alt="WoW Retail"
                                         className="w-full h-full object-cover"
                                     />
@@ -60,7 +60,7 @@ const About = () => {
                             <li className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-gray-900 border border-red-600 flex items-center justify-center overflow-hidden mr-3">
                                     <img
-                                        src="/src/assets/GameIcons/bg3.avif"
+                                        src="/images/GameIcons/bg3title.png"
                                         alt="Baldur's Gate 3"
                                         className="w-full h-full object-cover"
                                     />
@@ -70,7 +70,7 @@ const About = () => {
                             <li className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-gray-900 border border-green-200 flex items-center justify-center overflow-hidden mr-3">
                                     <img
-                                        src="/src/assets/GameIcons/fallout.webp"
+                                        src="/images/GameIcons/fallout.webp"
                                         alt="Fallout"
                                         className="w-full h-full object-cover"
                                     />
@@ -80,7 +80,7 @@ const About = () => {
                             <li className="flex items-center">
                                 <div className="w-8 h-8 rounded-full bg-gray-900 border border-pink-500 flex items-center justify-center overflow-hidden mr-3">
                                     <img
-                                        src="/src/assets/GameIcons/elderscrolls.webp"
+                                        src="/images/GameIcons/elderscrolls.webp"
                                         alt="Elder Scrolls"
                                         className="w-full h-full object-cover"
                                     />
