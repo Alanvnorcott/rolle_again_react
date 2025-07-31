@@ -171,7 +171,7 @@ export default function RandomizerButton({
             {/* Footer-style info below the button */}
             <div className="mt-3 text-xs text-gray-400 text-center">
                 Version 1.0.1 •{' '}
-                <p>Kongg - FATAL</p>
+                <p>Kongg - Fatal</p>
             </div>
         </div>
     );
